@@ -2,11 +2,16 @@
 
 * python3.11.13
 
-* Must create an .env outside of your source code. This is so that you do not have to copy them or upload to git.
+* Must create an .env file outside of your source code. This file contains your OPENAI_API_KEY and TAVILY_API_KEY.
 
-* Also, move the .env file outside of your source code.
+* python3.11 -m venv .venv
 
-* Always update your requirements.txt each time you have installed any python packages.
+* source .venv/bin/activate
+
+* pip install -r requirements.txt
+
+* streamlit run 7-rag-langgraph.py
+
 
 
 
