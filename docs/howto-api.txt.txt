@@ -1,0 +1,3937 @@
+Example of api call for enabling ssh with Multitech Gateway:
+============================================================
+
+curl -k "https://192.168.2.200/api/login?username=admin&password=multitech"
+
+curl -X PUT -i -k -H 'Content-Type: application/json' -d '{"ssh":{"enabled": true,"lan": true}}' https://192.168.2.200/api/remoteAccess?token=A722483D0AF18CE6A33F93ABC561D88
+
+curl -X POST -i -k -H 'Content-Type: application/json' -d '' https://192.168.2.200/api/command/save_apply?token=A722483D0AF18CE6A33F93ABC561D88
+
+log:
+====
+
+$ curl -k "https://192.168.2.200/api/login?username=admin&password=multitech"
+{
+        "code" : 200,
+        "result" :
+        {
+                "address" : "192.168.2.253",
+                "isipcuser" : false,
+                "ispasswordexpired" : false,
+                "isremoteuser" : false,
+                "permission" : "admin",
+                "port" : "55326",
+                "timestamp" : "15:44:2:908",
+                "token" : "A722483D0AF18CE6A33F93ABC561D88",
+                "user" : "admin"
+        },
+        "status" : "success"
+}
+
+bnt@btran-d ~
+$ curl -X PUT -i -k -H 'Content-Type: application/json' -d '{"ssh":{"enabled": true,"lan": true}}' https://192.168.2.200/api/remoteAccess?token=A722483D0AF18CE6A33F93ABC561D88
+HTTP/1.1 200 OK
+Set-Cookie: token=A722483D0AF18CE6A33F93ABC561D88; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 41
+Date: Wed, 30 Apr 2025 15:45:54 GMT
+
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+$ curl -X POST -i -k -H 'Content-Type: application/json' -d '' https://192.168.2.200/api/command/save_apply?token=A722483D0AF18CE6A33F93ABC561D88
+HTTP/1.1 200 OK
+Set-Cookie: token=A722483D0AF18CE6A33F93ABC561D88; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 41
+Date: Wed, 30 Apr 2025 15:48:48 GMT
+
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+example of api for query the firmware version:
+==============================================
+
+curl -i -k -H 'Content-type: application/json' -d "username=admin&password=Testing2025&submit=Login" --dump-header headers https://192.168.2.200/api/login
+
+curl -i -k -H 'Content-type: application/json' https://192.168.2.200/api/system/firmware?token=63794607F34C4355991D8547C5E6A50
+
+curl -i -k -H 'Content-type: application/json' https://192.168.2.200/api/system/firmwareRelease?token=63794607F34C4355991D8547C5E6A50
+
+log:
+====
+
+
+$ curl -i -k -H 'Content-type: application/json' -d "username=admin&password=Testing&submit=Login" --dump-header headers https://192.168.2.200/api/login
+HTTP/1.1 200 OK
+Set-Cookie: token=63794607F34C4355991D8547C5E6A50; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 316
+Date: Tue, 15 Apr 2025 20:49:59 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "address" : "192.168.2.253",
+                "isipcuser" : false,
+                "ispasswordexpired" : false,
+                "isremoteuser" : false,
+                "permission" : "admin",
+                "port" : "52713",
+                "timestamp" : "20:49:57:306",
+                "token" : "63794607F34C4355991D8547C5E6A50",
+                "user" : "admin"
+        },
+        "status" : "success"
+}
+
+$ curl -i -k -H 'Content-type: application/json' https://192.168.2.200/api/system/firmwareRelease?token=63794607F34C4355991D8547C5E6A50
+HTTP/1.1 200 OK
+Set-Cookie: token=63794607F34C4355991D8547C5E6A50; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Accept-Ranges: bytes
+Content-Length: 62
+Date: Tue, 15 Apr 2025 20:51:00 GMT
+
+{
+        "code" : 200,
+        "result" : "6.3.4",
+        "status" : "success"
+}
+
+example of api call for uploading file:
+=======================================
+
+curl -i -k -H 'Content-type: application/json' -d "username=admin&password=Testing2025&submit=Login" --dump-header headers https://192.168.2.6/api/login
+
+
+curl -i -k -X POST -H 'Content-type: application/json' -d '{"info": {"fileName": "bt.txt", "fileSize": 5}}' --dump-header headers https://192.168.2.6/api/command/app_pre_upload?token=1F10C8224D8BFFE453ABAE911C991E
+
+
+curl -i -k -X POST -F 'file=@bt.txt' --dump-header headers https://192.168.2.6/api/command/app_upload?token=1F10C8224D8BFFE453ABAE911C991E
+
+
+curl -i -k -X POST -H 'Content-type: application/json' -d '{[{"ids" : "12345"}]}' --dump-header headers https://192.168.2.6/api/customApps/12345/configs?token=1F10C8224D8BFFE453ABAE911C991E
+
+example of api call disable RX Join 1:
+======================================
+
+$ curl -i -k -H 'Content-type: application/json' -d "username=admin&password=Testing2205&submit=Login" --dump-header headers https://192.168.2.200/api/login
+HTTP/1.1 200 OK
+Set-Cookie: token=CAC613A9A64C8A1677EDC9D3E18598; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 315
+Date: Thu, 22 May 2025 16:54:12 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "address" : "192.168.2.253",
+                "isipcuser" : false,
+                "ispasswordexpired" : false,
+                "isremoteuser" : false,
+                "permission" : "admin",
+                "port" : "53762",
+                "timestamp" : "16:54:11:314",
+                "token" : "CAC613A9A64C8A1677EDC9D3E18598",
+                "user" : "admin"
+        },
+        "status" : "success"
+}
+
+bnt@btran-d ~
+
+
+bnt@btran-d ~
+$ curl -i -k -X PUT -H 'Content-type: application/json' -d '{"test": {"disableRxJoin1": true, "disableRxJoin2": true}}' https://192.168.2.200/api/loraNetwork?token=CAC613A9A64C8A1677EDC9D3E18598
+HTTP/1.1 200 OK
+Set-Cookie: token=CAC613A9A64C8A1677EDC9D3E18598; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 41
+Date: Thu, 22 May 2025 16:55:11 GMT
+
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+bnt@btran-d ~
+$ curl -k -X POST -H "Content-Type: application/json" -d '' https://192.168.2.200/api/command/save_apply?token=CAC613A9A64C8A1677EDC9D3E18598
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+example of api call to send AT command to the radio:
+===================================================
+
+curl -i -k -H 'Content-type: application/json' -d "username=admin&password=mydevices@2860&submit=Login" --dump-header headers https://192.168.2.111/api/login
+
+curl -i -k -X POST -H 'Content-type:application/json' -d '{"at":"ati"}' https://192.168.2.111/api/command/radio_cmd?token=8590E4ADE102920B542822D17E4FC6C
+
+######################################################################
+$ curl -i -k -H 'Content-type: application/json' -d "username=admin&password=mydevices@2860&submit=Login" --dump-header headers https://192.168.2.111/api/login
+HTTP/1.1 200 OK
+Set-Cookie: token=8590E4ADE102920B542822D17E4FC6C; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 316
+Date: Thu, 26 Jun 2025 15:40:55 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "address" : "192.168.2.253",
+                "isipcuser" : false,
+                "ispasswordexpired" : false,
+                "isremoteuser" : false,
+                "permission" : "admin",
+                "port" : "54612",
+                "timestamp" : "15:40:55:760",
+                "token" : "8590E4ADE102920B542822D17E4FC6C",
+                "user" : "admin"
+        },
+        "status" : "success"
+}
+
+$ curl -i -k -X POST -H 'Content-type:application/json' -d '{"at":"ati"}' https://192.168.2.111/api/command/radio_cmd?token=8590E4ADE102920B542822D17E4FC6C
+HTTP/1.1 200 OK
+Set-Cookie: token=8590E4ADE102920B542822D17E4FC6C; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 119
+Date: Thu, 26 Jun 2025 15:42:46 GMT
+
+{
+        "code" : 200,
+        "result" : "Quectel\r\nEG95\r\nRevision: EG95NAXDGAR07A01M1G\r\n\r\nOK\r\n",
+        "status" : "success"
+}
+
+* example API call for how to upload a single sensor:
+=====================================================
+
+https://192.168.2.42/api/scada/sensors/map
+
+{"sensor":"radiobridge/RBS301-TEMP-EXT","id":"78-94-e8-00-00-02-e7-cc","src":"lora"}
+
+* API call for how to upload a sensors.json file:
+=================================================
+
+Step1:
+=====
+
+Install the custom app:
+======================
+
+Note: Make sure you choose a correct custom app for your product. See README.txt
+
+curl -i -k -d "username=admin&password=Multitech2205&submit=Login" --dump-header headers https://192.168.2.42/api/login
+
+curl -i -k -X POST -F 'file=@BacnetObjects-arm7-v1.0.2.tar.gz' --dump-header headers https://192.168.2.42/api/command/app_upload?token=1EA468A78B6B7828A57B6CFC8C5CDA
+
+curl -i -k -X POST -H 'Content-type: application/json' -d '{"info":{"appFile": "BacnetObjects-arm7-v1.0.2.tar.gz", "appId": "12345", "appName": "BacnetObjects"}}' --dump-header headers https://192.168.2.42/api/command/app_install?token=1EA468A78B6B7828A57B6CFC8C5CDA
+
+Step2:
+======
+
+Upload your managed sensor:
+===========================
+curl -i -k -d "username=admin&password=Multitech2205&submit=Login" --dump-header headers https://192.168.2.42/api/login
+
+curl -i -k -b headers --http1.0 -F file=@sensor-mappings.json https://192.168.2.42/api/scada/sensors/importmap?token=1EA468A78B6B7828A57B6CFC8C5CDA
+
+curl -k -X POST -H "Content-Type:application/json" -d "" https://192.168.2.42/api/command/save_apply?token=1EA468A78B6B7828A57B6CFC8C5CDA
+
+
+
+Step3:
+======
+
+Import your sensor definitation:
+================================
+
+https://192.168.2.42/api/scada/sensors/definitionsCustom/importdefinition
+
+Content-Disposition: form-data; name="definitionFile"; filename="sensor_definition"
+
+Content-Disposition: form-data; name="decocedFile"; filename="sensor_decoder"
+
+
+curl -i -k -d "username=admin&password=Multitech2205&submit=Login" --dump-header headers https://192.168.2.42/api/login
+
+curl --request POST --url https://192.168.2.1/api/scada/sensors/definitionsCustom/importdefinition \
+  -k \
+  --header 'Content-Type: multipart/form-data' \
+  --cookie token="$TOKEN" \
+  --form 'definitionFile=@./files/ELTLite.json;filename=sensor_definition' \
+  --form 'decocedFile=@./files/default-decoder.js;filename=sensor_decoder' \
+  --form 'detailsFile=@./files/import_params.json;filename=sensor_details' \
+
+
+
+Example of api call to configure DHCP on the ethernet eth0:
+===========================================================
+
+
+$ curl -i -k -H 'Content-type: application/json' -d "username=admin&password=Multitech2205&submit=Login" --dump-header headers https://192.168.2.6/api/login
+
+HTTP/1.1 200 OK
+Set-Cookie: token=6266C7E918150FA45FCEFB81909F4; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 314
+Date: Fri, 02 Feb 2024 20:49:31 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "address" : "192.168.2.253",
+                "isipcuser" : false,
+                "ispasswordexpired" : false,
+                "isremoteuser" : false,
+                "permission" : "admin",
+                "port" : "53743",
+                "timestamp" : "20:49:31:757",
+                "token" : "6266C7E918150FA45FCEFB81909F4",
+                "user" : "admin"
+        },
+        "status" : "success"
+}
+
+
+bnt@btran-d ~/testing-custom-app-area/python-example-custom-app-worked-python3
+
+$ curl -i -k -X PUT -H "Content-Type: json/application" -d '{ "wan" : true }' https://192.168.2.6/api/remoteAccess/https?token=914CE3C22D51A73C8B333FFFEB1CE46C
+
+HTTP/1.1 200 OK
+Set-Cookie: token=6266C7E918150FA45FCEFB81909F4; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 41
+Date: Fri, 02 Feb 2024 20:50:55 GMT
+
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+bnt@btran-d ~/testing-custom-app-area/python-example-custom-app-worked-python3
+
+$ curl -i -k -X PUT -H "Content-Type: json/application" -d '{ "wan" : true }' https://192.168.2.6/api/remoteAccess/http?token=914CE3C22D51A73C8B333FFFEB1CE46C
+
+HTTP/1.1 200 OK
+Set-Cookie: token=6266C7E918150FA45FCEFB81909F4; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 41
+Date: Fri, 02 Feb 2024 20:51:08 GMT
+
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+bnt@btran-d ~/testing-custom-app-area/python-example-custom-app-worked-python3
+
+$ curl -k -X PUT -H "Content-Type: application/json" -d '{"ipv6":{"mode": "AUTO","enabled": false,"ip":[],"fixedIp": [],"linkLocalIp": [],"prefixDelegationEnabled": false,"delegatedPrefixLength": 64,"gateway": "","dns1": "","dns2": ""},"ipv4": {"ip": "","mask": "","gateway": "","dns1":"", "dns2":"","mode":"DHCP","wanMasquerade": true},"type": "WAN","nitype":"ETHER","name":"eth0","bridge":"--","available": true}' https://192.168.2.6/api/ni/nis/0?token=914CE3C22D51A73C8B333FFFEB1CE46C
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+bnt@btran-d ~/testing-custom-app-area/python-example-custom-app-worked-python3
+
+$ curl -k -X POST -H "Content-Type: application/json" -d '' https://192.168.2.6/api/command/save_restart?token=914CE3C22D51A73C8B333FFFEB1CE46C
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+example of api call to install custom app using curl command:
+=============================================================
+
+
+$ curl -i -k -H 'Content-type: application/json' -d "username=admin&password=Multitech2205&submit=Login" --dump-header headers https://192.168.2.5/api/login
+
+
+HTTP/1.1 200 OK
+Set-Cookie: token=A98C97CBBA53332D5C505DF0565E9BCD; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 316
+Date: Tue, 23 Jan 2024 20:24:58 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "address" : "192.168.2.253",
+                "isipcuser" : false,
+                "ispasswordexpired" : false,
+                "isremoteuser" : false,
+                "permission" : "admin",
+                "port" : "64209",
+                "timestamp" : "20:24:58:50",
+                "token" : "A98C97CBBA53332D5C505DF0565E9BCD",
+                "user" : "admin"
+        },
+        "status" : "success"
+}
+
+bnt@btran-d ~/testing-custom-app-area/restart-basic-station-ip-change
+
+
+$ curl -i -k -X POST -H 'Content-type: application/json' -d '{"info": {"fileName": "restart-basic-station-ppp-v2.2.tar.gz", "fileSize": 8111}}' --dump-header headers https://192.168.2.5/api/command/app_pre_upload?token=A98C97CBBA53332D5C505DF0565E9BCD
+
+
+
+HTTP/1.1 200 OK
+Set-Cookie: token=A98C97CBBA53332D5C505DF0565E9BCD; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 41
+Date: Tue, 23 Jan 2024 20:25:36 GMT
+
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+
+
+bnt@btran-d ~/testing-custom-app-area/restart-basic-station-ip-change
+
+
+$ curl -i -k -X POST -F 'file=@restart-basic-station-ppp-v2.2.tar.gz' --dump-header headers https://192.168.2.5/api/command/app_upload?token=A98C97CBBA53332D5C505DF0565E9BCD
+
+
+
+HTTP/1.1 200 OK
+Set-Cookie: token=A98C97CBBA53332D5C505DF0565E9BCD; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: text/plain
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 61
+Date: Tue, 23 Jan 2024 20:26:25 GMT
+
+{
+        "code" : 200,
+        "status" : "success",
+        "type" : "upload"
+}
+
+bnt@btran-d ~/testing-custom-app-area/restart-basic-station-ip-change
+
+
+$ curl -i -k -X POST -H 'Content-type: application/json' -d '{"info":{"appFile": "restart-basic-station-ppp-v2.2.tar.gz", "appId": "12345", "appName": "restart-basic-station-ppp"}}' --dump-header headers https://192.168.2.5/api/command/app_install?token=A98C97CBBA53332D5C505DF0565E9BCD
+
+
+
+HTTP/1.1 200 OK
+Set-Cookie: token=A98C97CBBA53332D5C505DF0565E9BCD; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 41
+Date: Tue, 23 Jan 2024 20:26:40 GMT
+
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+bnt@btran-d ~/testing-custom-app-area/restart-basic-station-ip-change
+
+example of api to update the bacnet object value:
+=================================================
+
+curl localhost/api/scada/bacnetOut/map
+
+curl -X POST -H'Content-Type: application/json' -d '{"descr":"temperature","name":"temperature","oid":107,"key":"lora@00-80-00-00-04-06-2e-4b@temperature"}' localhost/api/scada/bacnetOut/map/analog-inputs
+
+curl -X POST -H'Content-Type: application/json' -d '' localhost/api/command/save_apply?allowRestart=false
+
+
+example of api to upload the CA or server certificate:
+======================================================
+
+root@mtcdt:/var/config/home/admin# curl --request POST --url localhost/api/cacertificates/upload -i -k --header 'Content-Type: multipart/form-data' --form "certFile=@rootCA.pem;filename=roo
+tCA.pem"
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 41
+Date: Tue, 30 Jul 2024 19:37:38 GMT
+
+{
+        "code" : 200,
+        "status" : "success"
+}
+root@mtcdt:/var/config/home/admin# curl --request POST --url localhost/api/certificate/upload -i -k --header 'Content-Type: multipart/form-data' --form "certFile=@server.crt;filename=server.crt"
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: text/plain
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 61
+Date: Tue, 30 Jul 2024 19:37:53 GMT
+
+{
+        "code" : 200,
+        "status" : "success",
+        "type" : "upload"
+}
+root@mtcdt:/var/config/home/admin# curl -X POST -d ""  localhost/api/command/save_restart
+{
+        "code" : 200,
+        "status" : "success"
+}
+root@mtcdt:/var/config/home/admin#
+
+example of api to create a new user account:
+============================================
+
+$ curl -k "https://192.168.2.5/api/login?username=admin&password=Testing1234"
+{
+        "code" : 200,
+        "result" :
+        {
+                "address" : "192.168.2.252",
+                "isipcuser" : false,
+                "ispasswordexpired" : false,
+                "isremoteuser" : false,
+                "permission" : "admin",
+                "port" : "51537",
+                "timestamp" : "13:38:52:286",
+                "token" : "29AB48DA89D17FABF6A57CD3080A7C8",
+                "user" : "admin"
+        },
+        "status" : "success"
+}
+
+bnt@btran-d ~/testing-custom-app-area/keep-alive
+$ curl -i -k -X POST -H 'Content-Type: application/json' -d '{"address":"","city":"","country":"","creationDate":"","division":"","email":"john@john.com","employeeId":"","enabled":true,"firstName":"john","lastLoginDate":"","lastName":"Doe","mobilePhone":"","name":"john","passwordChangedDate":"","permission":"guest","postalCode":"","state":"","title":"","workPhone":""}' https://192.168.2.5/api/users?token=29AB48DA89D17FABF6A57CD3080A7C8
+HTTP/1.1 200 OK
+Set-Cookie: token=29AB48DA89D17FABF6A57CD3080A7C8; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 41
+Date: Tue, 29 Aug 2023 13:41:05 GMT
+
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+bnt@btran-d ~/testing-custom-app-area/keep-alive
+$ curl -i -k -X POST -H 'Content-Type: application/json' -d '{ "username": "john", "aasID": "", "aasAnswer":""}' https://192.168.2.5/api/command/passwd?token=29AB48DA89D17FABF6A57CD3080A7C8
+HTTP/1.1 200 OK
+Set-Cookie: token=29AB48DA89D17FABF6A57CD3080A7C8; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 196
+Date: Tue, 29 Aug 2023 13:41:26 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "aasDone" : false,
+                "aasID" : "D3927B4DAA785C9DE0505982C363CA",
+                "aasMsg" : "New password: ",
+                "aasType" : "question; input hide"
+        },
+        "status" : "success"
+}
+
+bnt@btran-d ~/testing-custom-app-area/keep-alive
+$ curl -i -k -X POST -H 'Content-Type: application/json' -d '{ "username": "john", "aasID": "D3927B4DAA785C9DE0505982C363CA", "aasAnswer":"4yourEyeOnly"}' https://192.168.2.5/api/command/passwd?token=29AB48DA89D17FABF6A57CD3080A7C8
+HTTP/1.1 200 OK
+Set-Cookie: token=29AB48DA89D17FABF6A57CD3080A7C8; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 203
+Date: Tue, 29 Aug 2023 13:42:08 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "aasDone" : false,
+                "aasID" : "D3927B4DAA785C9DE0505982C363CA",
+                "aasMsg" : "Retype new password: ",
+                "aasType" : "question; input hide"
+        },
+        "status" : "success"
+}
+
+bnt@btran-d ~/testing-custom-app-area/keep-alive
+$ curl -i -k -X POST -H 'Content-Type: application/json' -d '{ "username": "john", "aasID": "D3927B4DAA785C9DE0505982C363CA", "aasAnswer":"4yourEyeOnly"}' https://192.168.2.5/api/command/passwd?token=29AB48DA89D17FABF6A57CD3080A7C8
+HTTP/1.1 200 OK
+Set-Cookie: token=29AB48DA89D17FABF6A57CD3080A7C8; Path=/; SameSite=Strict; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 189
+Date: Tue, 29 Aug 2023 13:42:24 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "aasDone" : true,
+                "aasID" : "D3927B4DAA785C9DE0505982C363CA",
+                "aasMsg" : "Change password success!",
+                "aasType" : "info"
+        },
+        "status" : "success"
+}
+
+bnt@btran-d ~/testing-custom-app-area/keep-alive
+
+example of api to change the password:
+======================================
+
+root@mtcdt:/var/config/app#curl -i -k -X POST -H 'Content-Type: application/json' -d '{ "username": "admin", "aasID": "", "aasAnswer":""}' localhost/api/command/passwd
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 197
+Date: Mon, 12 Jun 2023 17:51:10 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "aasDone" : false,
+                "aasID" : "57EDF49E1810374A8F238735139C582",
+                "aasMsg" : "New password: ",
+                "aasType" : "question; input hide"
+        },
+        "status" : "success"
+}
+root@mtcdt:/var/config/app#curl -i -k -X POST -H 'Content-Type: application/json' -d '{ "username": "admin", "aasID": "57EDF49E1810374A8F238735139C582", "aasAnswer":"4yourEyeOnly"}' localhost/api/command/passwd
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 204
+Date: Mon, 12 Jun 2023 17:51:43 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "aasDone" : false,
+                "aasID" : "57EDF49E1810374A8F238735139C582",
+                "aasMsg" : "Retype new password: ",
+                "aasType" : "question; input hide"
+        },
+        "status" : "success"
+}
+root@mtcdt:/var/config/app#curl -i -k -X POST -H 'Content-Type: application/json' -d '{ "username": "admin", "aasID": "57EDF49E1810374A8F238735139C582", "aasAnswer":"4yourEyeOnly"}' localhost/api/command/passwd
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; img-src 'self' data: blob:; style-src 'unsafe-inline' 'self';
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 190
+Date: Mon, 12 Jun 2023 17:52:17 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "aasDone" : true,
+                "aasID" : "57EDF49E1810374A8F238735139C582",
+                "aasMsg" : "Change password success!",
+                "aasType" : "info"
+        },
+        "status" : "success"
+}
+root@mtcdt:/var/config/app#
+
+VERY IMPORTANT:
+===============
+
+Do not need to save and restart when changing the password.
+
+example of api to turn off the debug console:
+=============================================
+
+root@mtcdt:/var/config/home/admin# curl -X POST -H 'Content-type:application/json' -d '{"silent": true}' localhost/api/command/bootloader_console
+{
+   "code" : 200,
+   "status" : "success"
+}
+root@mtcdt:/var/config/home/admin#
+
+
+Note: This command will turn off both the front 'Debug' port and the back 'Device' port.
+
+example of api to update the static route:
+==========================================
+
+root@mtcdt:/var/config/home/admin#curl -X POST -H "Content-Type: application/json" -d '{"gateway": "194.168.2.1", "ip":"194.168.2.12","mask":24,"name":"test2"}' localhost/api/routes
+{
+   "code" : 200,
+   "status" : "success"
+}
+root@mtcdt:/var/config/home/admin# cat /etc/issue
+     _        _____     ____
+    / \\      | ____|   |  _ \\
+   / _ \\     |  _|     | |_) |
+  / ___ \\  _ | |___  _ |  __/_
+ /_/   \\_\\(_)|_____|(_)|_|  (_)
+
+MultiTech Systems Application Enablement Platform with mLinux GNU/Linux
+
+mLinux 5.3.0 \n \l
+
+
+Version: 5.3.3
+Date: 2021-02-19T22:38:27
+root@mtcdt:/var/config/home/admin# curl localhost/api/routes
+{
+   "code" : 200,
+   "result" : [
+      {
+         "gateway" : "193.168.2.1",
+         "ip" : "192.168.3.10",
+         "mask" : 24,
+         "name" : "test"
+      },
+      {
+         "gateway" : "194.168.2.1",
+         "ip" : "194.168.2.12",
+         "mask" : 24,
+         "name" : "test2"
+      }
+   ],
+   "status" : "success"
+}
+root@mtcdt:/var/config/home/admin# curl -X POST -H "Content-Type: application/json" -d '' localhost/api/command/save_apply
+{
+   "code" : 200,
+   "status" : "success"
+}
+root@mtcdt:/var/config/home/admin#
+
+example of api to commissioning the gateway on windows platform or windows Operating System:
+============================================================================================
+
+--------------------------------------------------------------
+curl -k "https://192.168.2.1/api/commissioning"
+{
+"code" : 200,
+"status" : "success"
+}
+
+################################################
+curl -k -X POST -H "Content-Type: json/application" -d "{\"username\":\"admin\", \"aasID\": \"\", \"aasAnswer\":\"\"}" https://192.168.2.1:443/api/commissioning
+{
+   "code" : 200,
+   "result" : {
+      "aasDone" : false,
+      "aasID" : "A71EE27C8F63FA3638AD9D821CE6329D",
+      "aasMsg" : "New password: ",
+      "aasType" : "question; input hide"
+   },
+   "status" : "success"
+}
+
+###############################################
+curl -k -X POST -H "Content-Type: json/application" -d "{\"username\":\"admin\", \"aasID\": \"A71EE27C8F63FA3638AD9D821CE6329D\", \"aasAnswer\":\"Admin123\"}" https://192.168.2.1:443/api/commissioning
+{
+   "code" : 200,
+   "result" : {
+      "aasDone" : false,
+      "aasID" : "A71EE27C8F63FA3638AD9D821CE6329D",
+      "aasMsg" : "Retype new password: ",
+      "aasType" : "question; input hide"
+   },
+   "status" : "success"
+}
+
+##############################################
+curl -k -X POST -H "Content-Type: json/application" -d "{\"username\":\"admin\", \"aasID\": \"A71EE27C8F63FA3638AD9D821CE6329D\", \"aasAnswer\":\"Admin123\"}" https://192.168.2.1:443/api/commissioning
+{
+   "code" : 200,
+   "result" : {
+      "aasDone" : true,
+      "aasID" : "A71EE27C8F63FA3638AD9D821CE6329D",
+      "aasMsg" : "Change password success!",
+      "aasType" : "info"
+   },
+   "status" : "success"
+}
+#############################################
+
+
+example of api to add a device and session via serial console or ssh:
+======================================================================
+
+curl -X POST -H 'Content-Type: application/json' -d '{"deveui": "0080000004011b15","device_profile_id": 1,"firmware_version": "1234","hardware_version": "1234","name": "test","network_profile_id": 1,"product_id": "1234","serial_number": "1234"}' localhost/api/lora/devices
+
+curl -X POST -H 'Content-Type: application/json' -d '{"app_senc_key": "aabbccddeeff9988aabbccddeeff9988","appeui": "aabbccddeeff9988","dev_addr": "00000001","deveui": "0080000004011b15","fnwk_sint_key": "aabbccddeeff9988aabbccddeeff9988","joineui": "aabbccddeeff9988","net_id": "000000"}' localhost/api/lora/sessions
+
+
+example of api to enable the ppp keepalive via ssh:
+==================================================
+
+curl -X PUT --header 'content-type: application/json' -d '{"enabled": true}' 127.0.0.1/api/ppp/keepAlive
+
+curl -X PUT --header 'content-type: application/json' -d '{"hostname": "www.google.com"}' 127.0.0.1/api/ppp/keepAlive
+
+curl -X POST -d "" 127.0.0.1/api/command/save
+
+curl -X POST -d "" 127.0.0.1/api/command/restart
+
+example of api to Enable Auto Reboot via ssh:
+=============================================
+
+curl -X PUT --header 'content-type: application/json' -d '{"mode": "TIMER", "hour" : 24}' 127.0.0.1/api/autoReboot
+
+curl -X POST -d "" 127.0.0.1/api/command/save
+
+curl -X POST -d "" 127.0.0.1/api/command/restart
+
+
+example of api to configure the MQTT broker on the gateway:
+===========================================================
+
+$ curl -i -k -d "username=admin&password=Multitech2205&submit=Login" --dump-header headers https://192.168.2.21/api/login
+HTTP/1.1 200 OK
+Set-Cookie: token=1325FA49B93F2E88FC04310810219B; Path=/; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; script-src 'unsafe-inline' 'unsafe-eval' 'self'; style-src 'unsafe-inline' https://fonts.googleapis.com 'self'; font-src https://fonts.gstatic.com 'self'; connect-src 'self'; img-src 'self' data:
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 283
+Date: Tue, 10 May 2022 11:00:19 GMT
+
+{
+        "code" : 200,
+        "result" :
+        {
+                "address" : "192.168.2.12",
+                "isipcuser" : false,
+                "isremoteuser" : false,
+                "permission" : "admin",
+                "port" : "55608",
+                "timestamp" : "10:54:39:806",
+                "token" : "1325FA49B93F2E88FC04310810219B",
+                "user" : "admin"
+        },
+        "status" : "success"
+}
+
+DESKTOP-PSS68VV+test@DESKTOP-PSS68VV ~
+$ curl -k -X PUT -H "Content-Type:application/json" -d '{"__v":1,"bridge":{"authMethod":"userPass","certificate":"","cleanSession":false,"clientId":"MTCAP","enabled":true,"identity":"","notifications":false,"password":"Y4iMJ1JblrunISEM_vfh8pTT3cIJZfR0","privateKey":"","protocolVersion":"mqttv31","psk":"","secondaryAddress":"","secondaryPort":1883,"serverAddress":"192.168.2.12","serverPort":1883,"tlsEnabled":false,"topics":[{"direction":"out","localPrefix":"","pattern":"lora/+/+/up","qosLevel":2,"remotePrefix":""},{"direction":"out","localPrefix":"","pattern":"lora/+/+/joined","qosLevel":2,"remotePrefix":""}],"tryPrivate":false,"username":"erdohzgr","verifyHostname":false}}' https://192.168.2.21/api/mqttBroker?token=1325FA49B93F2E88FC04310810219B
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+DESKTOP-PSS68VV+test@DESKTOP-PSS68VV ~
+$ curl -i -k -X POST -H "Content-Type: application/json" -d "" https://192.168.2.21/api/command/save_apply?token=1325FA49B93F2E88FC04310810219B
+HTTP/1.1 200 OK
+Set-Cookie: token=1325FA49B93F2E88FC04310810219B; Path=/; Secure; HttpOnly
+Cache-Control: no-cache
+Cache-Control: no-cache
+Content-type: application/json
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; script-src 'unsafe-inline' 'unsafe-eval' 'self'; style-src 'unsafe-inline' https://fonts.googleapis.com 'self'; font-src https://fonts.gstatic.com 'self'; connect-src 'self'; img-src 'self' data:
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; payment 'none'; usb 'none'
+Strict-Transport-Security: max-age=31536000
+Content-Length: 41
+Date: Tue, 10 May 2022 11:01:13 GMT
+
+{
+        "code" : 200,
+        "status" : "success"
+}
+
+DESKTOP-PSS68VV+test@DESKTOP-PSS68VV ~
+
+example of api to reset the modem on the gateway via ssh:
+=========================================================
+
+curl -X POST -H 'Content-Type:application/json' -d '' localhost/api/command/reset_modem
+
+
+example of api to submit downlink to the gateway:
+=================================================
+
+C:\Users\test\Downloads\curl-7.53.1>curl -k "https://172.16.0.233/api/login?username=admin&password=admin"
+{
+   "code" : 200,
+   "result" : {
+      "address" : "172.16.0.105",
+      "permission" : "admin",
+      "port" : "56832",
+      "timestamp" : "18:29:38:242",
+      "token" : "F077F1595EA5F0AFF4F016724C93F553",
+      "user" : "admin"
+   },
+   "status" : "success"
+}
+
+
+curl -i -k -X POST -H "Content-type: application/json" -d "{\"deveui\": \"008000000400e256\", \"data\": \"aGk=\", \"port\": 1}" https://172.16.0.233:443/api/lora/packets/queue?token=F077F1595EA5F0AFF4F016724C93F553
+
+HTTP/1.1 200 OK
+Set-Cookie: token=F077F1595EA5F0AFF4F016724C93F553; Max-Age=300; Path=/; Secure
+Cache-Control: no-cache
+Content-type: application/json
+Content-Length: 111
+Date: Tue, 18 Dec 2018 19:06:13 GMT
+Server: rcell
+
+{
+   "code" : 200,
+   "result" : {
+      "id" : 13,
+      "status" : "success"
+   },
+   "status" : "success"
+}
+
+C:\Users\test\Downloads\curl-7.53.1>
+
+example of api to enable http and https via wan via serial console on the gateway:
+==================================================================================
+
+curl -s -m 5 -X PUT -H "Content-Type: json/application" -d '{ "wan" : true }' 127.0.0.1/api/remoteAccess/https
+
+curl -X POST -d "" 127.0.0.1/api/command/save
+
+curl -X POST -d "" 127.0.0.1/api/command/restart
+
+example of api to send sms message:
+===================================
+
+curl -k "https://192.168.2.1/api/login?username=admin&password=admin"
+
+curl -k -X POST -H "Content-Type:application/json" -d "{\"recipients\": [\"1231231234\"],\"message\":\"hello me\"}" https://172.0.16.201/api/sms/outbox?token=4EEE22EB488B171D3942472312D692
+
+db.json:
+========
+
+{
+        "alert" :
+        {
+                "alerts" :
+                [
+                        {
+                                "alertOn" : 80,
+                                "dataAllowedPerMonth" : -1,
+                                "dataPlanStartDate" : 1,
+                                "dataPlanType" : "Monthly",
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Data Usage",
+                                "interval" : 30,
+                                "intervalStartDate" : "",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Signal Strength",
+                                "interval" : 60,
+                                "minWaitTimeAfterAlarm" : 24,
+                                "notifyGroup" : "",
+                                "signalStrength" : -60,
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Device Reboot",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Ethernet Failure",
+                                "interval" : 60,
+                                "minWaitTimeAfterAlarm" : 24,
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "WifiWan Failure",
+                                "interval" : 60,
+                                "minWaitTimeAfterAlarm" : 24,
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Cellular Failure",
+                                "interval" : 60,
+                                "minWaitTimeAfterAlarm" : 24,
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Ethernet Traffic",
+                                "notifyGroup" : "",
+                                "periodicInterval" : 24,
+                                "sms" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Wifi Traffic",
+                                "notifyGroup" : "",
+                                "periodicInterval" : 24,
+                                "sms" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Cellular Traffic",
+                                "notifyGroup" : "",
+                                "periodicInterval" : 24,
+                                "sms" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "WAN Failover",
+                                "failoverEvent" : "Always",
+                                "minWaitTimeAfterStart" : 60,
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "count" : 4,
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Ping Failure",
+                                "failThreshold" : 4,
+                                "ipAddress" : "google.com",
+                                "netIface" : "ANY",
+                                "notifyGroup" : "",
+                                "pingInterval" : 60,
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Security Violation",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Flash Memory Violation",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "event" : "Resources Overuse",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        }
+                ],
+                "groups" : []
+        },
+        "appStore" :
+        {
+                "appStoreUrl" : "https://www.devicehq.com",
+                "dependencyUrl" : "https://www.devicehq.com"
+        },
+        "apps" :
+        [
+                {
+                        "_id" : "development",
+                        "enabled" : true,
+                        "name" : "Development",
+                        "platform" : "Node-RED",
+                        "status" : "RUNNING",
+                        "type" : "app",
+                        "version" : "0.0.0",
+                        "versions" :
+                        [
+                                {
+                                        "version" : "0.0.0"
+                                }
+                        ]
+                }
+        ],
+        "autoDialout" :
+        {
+                "eia" : false,
+                "enabled" : false,
+                "inactivity" : 0,
+                "login" : true,
+                "port" : 5000,
+                "raw" : false,
+                "tcpKeepaliveInterval" : 75,
+                "tcpKeepaliveProbes" : 9,
+                "tcpKeepaliveTime" : 7200
+        },
+        "autoReboot" :
+        {
+                "__v" : 1,
+                "hour" : 3,
+                "minute" : 0,
+                "mode" : "DISABLED"
+        },
+        "backOffTimers" :
+        {
+                "enabled" : true,
+                "timers" :
+                [
+                        {
+                                "carrierName" : "AT&T",
+                                "data" :
+                                [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        600,
+                                        900,
+                                        1800,
+                                        3600
+                                ],
+                                "dataReset" :
+                                [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        600,
+                                        900,
+                                        1800,
+                                        3600
+                                ],
+                                "modemReset" :
+                                [
+                                        300,
+                                        300,
+                                        300,
+                                        300,
+                                        600,
+                                        1800,
+                                        3600
+                                ],
+                                "readOnly" : true,
+                                "sms" :
+                                [
+                                        30,
+                                        30,
+                                        30,
+                                        30,
+                                        900,
+                                        900,
+                                        1800,
+                                        3600
+                                ]
+                        },
+                        {
+                                "carrierName" : "default",
+                                "data" :
+                                [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        600,
+                                        900,
+                                        1800,
+                                        3600
+                                ],
+                                "dataReset" :
+                                [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        600,
+                                        900,
+                                        1800,
+                                        3600
+                                ],
+                                "modemReset" :
+                                [
+                                        300,
+                                        300,
+                                        300,
+                                        300,
+                                        600,
+                                        1800,
+                                        3600
+                                ],
+                                "readOnly" : true,
+                                "sms" :
+                                [
+                                        30,
+                                        30,
+                                        30,
+                                        30,
+                                        900,
+                                        900,
+                                        1800,
+                                        3600
+                                ]
+                        },
+                        {
+                                "carrierName" : "Rogers",
+                                "data" :
+                                [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        600,
+                                        900,
+                                        1800,
+                                        3600
+                                ],
+                                "dataReset" :
+                                [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        600,
+                                        900,
+                                        1800,
+                                        3600
+                                ],
+                                "modemReset" :
+                                [
+                                        300,
+                                        300,
+                                        300,
+                                        300,
+                                        600,
+                                        1800,
+                                        3600
+                                ],
+                                "readOnly" : true,
+                                "sms" :
+                                [
+                                        30,
+                                        30,
+                                        30,
+                                        30,
+                                        900,
+                                        900,
+                                        1800,
+                                        3600
+                                ]
+                        },
+                        {
+                                "carrierName" : "Verizon",
+                                "data" :
+                                [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        600,
+                                        900,
+                                        1800,
+                                        3600
+                                ],
+                                "dataReset" :
+                                [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        600,
+                                        900,
+                                        1800,
+                                        3600
+                                ],
+                                "modemReset" :
+                                [
+                                        300,
+                                        300,
+                                        300,
+                                        300,
+                                        600,
+                                        1800,
+                                        3600
+                                ],
+                                "readOnly" : true,
+                                "sms" :
+                                [
+                                        30,
+                                        30,
+                                        30,
+                                        30,
+                                        900,
+                                        900,
+                                        1800,
+                                        3600
+                                ]
+                        }
+                ]
+        },
+        "battery" :
+        {
+                "historyEnabled" : true,
+                "historyInterval" : 240,
+                "historyPeriod" : 60
+        },
+        "bluetooth" :
+        {
+                "device" :
+                {
+                        "address" : "",
+                        "name" : ""
+                },
+                "devices" : [],
+                "enabled" : false,
+                "savedDevices" : []
+        },
+        "bluetoothLowEnergy" :
+        {
+                "device" :
+                {
+                        "address" : "",
+                        "interface" : "",
+                        "name" : ""
+                },
+                "devices" : [],
+                "enabled" : false,
+                "powerRfRx" : "Low",
+                "powerRfTotal" : "High",
+                "powerRfTx" : "Low",
+                "savedDevices" : []
+        },
+        "brand" :
+        {
+                "__v" : 2,
+                "address1" : "",
+                "address2" : "",
+                "buttonColor" : "",
+                "buttonFontColor" : "",
+                "buttonHighlightColor" : "",
+                "buttonHighlightFontColor" : "",
+                "city" : "",
+                "companyName" : "",
+                "country" : "",
+                "fax" : "",
+                "icon" : "",
+                "image" : "",
+                "links" : [],
+                "logo" : "",
+                "phoneNumbers" : [],
+                "showOnDashboard" : false,
+                "state" : "",
+                "website" : "",
+                "zipCode" : ""
+        },
+        "btDevices" : [],
+        "callHome" :
+        {
+                "__v" : 1,
+                "enabled" : false
+        },
+        "cellTimeSync" :
+        {
+                "enabled" : false,
+                "pollingTime" : 120
+        },
+        "customApps" : {},
+        "customAppsConfig" :
+        {
+                "allowed" : true,
+                "backupOnInstall" : true,
+                "enabled" : true
+        },
+        "customRoles" : [],
+        "databaseInfo" :
+        {
+                "default" :
+                {
+                        "location" : "/etc/db_default.json",
+                        "timestamp" : "",
+                        "version" : "4.1.86"
+                },
+                "oem" : null,
+                "timestamp" : "07/30/25 18:22:53"
+        },
+        "ddns" :
+        {
+                "authentication" :
+                {
+                        "password" : "",
+                        "username" : ""
+                },
+                "checkIp" :
+                {
+                        "enabled" : true,
+                        "port" : 80,
+                        "server" : "checkip.dyndns.org"
+                },
+                "domain" : "",
+                "enabled" : false,
+                "port" : 80,
+                "retriesMax" : 5,
+                "server" : "dyndns.org",
+                "system" : "DYNAMIC",
+                "updateInterval" : 28
+        },
+        "dhcp" :
+        {
+                "__v" : 2,
+                "dhcp6s" :
+                [
+                        {
+                                "domain" : "",
+                                "enabled" : true,
+                                "fixedAddresses" : [],
+                                "interface" : "br0",
+                                "leaseTime" : 86400,
+                                "leases" : [],
+                                "maxLeases" : 200,
+                                "mode" : "STATELESS",
+                                "modeRA" : "STATELESS",
+                                "options" :
+                                [
+                                        "dhcp-authoritative"
+                                ],
+                                "rangeEnd" : "",
+                                "rangeStart" : "",
+                                "subnetPrefix" : "",
+                                "subnetPrefixLength" : 64
+                        }
+                ],
+                "dhcps" :
+                [
+                        {
+                                "defaultGateway" : "193.168.2.1",
+                                "domain" : "",
+                                "enabled" : false,
+                                "fixedAddresses" : [],
+                                "interface" : "br0",
+                                "leaseTime" : 86400,
+                                "leases" : [],
+                                "maxLeases" : 200,
+                                "options" :
+                                [
+                                        "dhcp-authoritative"
+                                ],
+                                "rangeEnd" : "192.168.2.254",
+                                "rangeStart" : "192.168.2.100",
+                                "subnetAddress" : "192.168.2.0",
+                                "subnetMask" : "255.255.255.0"
+                        }
+                ]
+        },
+        "dns" :
+        {
+                "__v" : 1,
+                "enabled" : true,
+                "ipv6" :
+                {
+                        "primary" : "",
+                        "secondary" : ""
+                },
+                "options" : [],
+                "primary" : "",
+                "secondary" : ""
+        },
+        "docker" :
+        {
+                "enabled" : false
+        },
+        "eventlog" :
+        {
+                "remote" : [],
+                "severityLevel" : "NOTICE"
+        },
+        "filters" :
+        [
+                {
+                        "__v" : 2,
+                        "chain" : "OUTPUT",
+                        "description" : "allow outbound traffic originating from this device",
+                        "dstAddr" : "ANY",
+                        "dstInterface" : "ANY",
+                        "dstMask" : "",
+                        "dstPort" : "ANY",
+                        "dstSpecInterface" : "",
+                        "enabled" : true,
+                        "name" : "Allow Outbound",
+                        "protocol" : "TCP/UDP",
+                        "srcAddr" : "ANY",
+                        "srcInterface" : "ANY",
+                        "srcMac" : "ANY",
+                        "srcMask" : "",
+                        "srcPort" : "ANY",
+                        "srcSpecInterface" : "",
+                        "target" : "ACCEPT"
+                },
+                {
+                        "__v" : 2,
+                        "chain" : "INPUT",
+                        "description" : "",
+                        "dstAddr" : "ANY",
+                        "dstInterface" : "ANY",
+                        "dstMask" : "",
+                        "dstPort" : "1400",
+                        "dstSpecInterface" : "",
+                        "enabled" : true,
+                        "name" : "CommServer",
+                        "protocol" : "TCP/UDP",
+                        "srcAddr" : "ANY",
+                        "srcInterface" : "ANY",
+                        "srcMac" : "ANY",
+                        "srcMask" : "",
+                        "srcPort" : "ANY",
+                        "srcSpecInterface" : "",
+                        "target" : "ACCEPT"
+                }
+        ],
+        "firewall" :
+        {
+                "connTrackHelpers" : false,
+                "l2tp" : false,
+                "pptp" : false
+        },
+        "gps" :
+        {
+                "client" :
+                {
+                        "enabled" : false,
+                        "password" : "",
+                        "port" : 5445,
+                        "protocol" : "TCP",
+                        "remoteHost" : ""
+                },
+                "coordinates" :
+                {
+                        "altitude" : 0,
+                        "fixStatus" : 0,
+                        "latitude" : 0,
+                        "longitude" : 0,
+                        "numSatellites" : 0,
+                        "timestamp" : 0
+                },
+                "nmea" :
+                {
+                        "enabled" : false,
+                        "gga" : true,
+                        "gll" : false,
+                        "gsa" : true,
+                        "gsv" : true,
+                        "id" : "",
+                        "idPrefix" : "",
+                        "interval" : 10,
+                        "rmc" : true,
+                        "vtg" : false
+                },
+                "server" :
+                {
+                        "dumpSerialPort" : false,
+                        "enabled" : false,
+                        "password" : "",
+                        "port" : 5445
+                }
+        },
+        "greTunnels" : [],
+        "ipPipes" :
+        [
+                {
+                        "__v" : 2,
+                        "activation" : "",
+                        "bufferTimeoutMs" : 0,
+                        "description" : "IP Pipe to Default Serial Port",
+                        "enabled" : false,
+                        "ip" : "",
+                        "mode" : "SERVER",
+                        "name" : "SERIAL2IP",
+                        "port" : 3000,
+                        "protocol" : "TCP",
+                        "secondaryIp" : "",
+                        "secondaryPort" : 0,
+                        "sequence" : "",
+                        "serialReadBufSize" : 1024,
+                        "source" : "s0",
+                        "termination" : "ALWAYS-ON",
+                        "timeoutSeconds" : 0,
+                        "type" : "SERIAL2IP"
+                },
+                {
+                        "__v" : 2,
+                        "activation" : "",
+                        "bufferTimeoutMs" : 0,
+                        "description" : "IP Pipe to Default Bluetooth Port",
+                        "enabled" : false,
+                        "ip" : "",
+                        "mode" : "SERVER",
+                        "name" : "BLUETOOTH2IP",
+                        "port" : 3000,
+                        "protocol" : "TCP",
+                        "secondaryIp" : "",
+                        "secondaryPort" : 0,
+                        "sequence" : "",
+                        "serialReadBufSize" : 1024,
+                        "source" : "bt0",
+                        "termination" : "ALWAYS-ON",
+                        "timeoutSeconds" : 0,
+                        "type" : "BLUETOOTH2IP"
+                }
+        ],
+        "ipsecTunnels" : [],
+        "lan" :
+        {
+                "gateway" : "",
+                "ip" : "192.168.2.1",
+                "ipMode" : "IPv4",
+                "ipv6" :
+                {
+                        "ip" : "",
+                        "prefixlen" : ""
+                },
+                "mask" : "255.255.255.0",
+                "publicIpMask" : "255.255.255.255"
+        },
+        "legacyDefaults" :
+        {
+                "inet_config" :
+                {
+                        "ag-server" : "disable",
+                        "auto-dialin" : "disable",
+                        "boot-messages" : "disable",
+                        "dns" : "enable",
+                        "inactivity" : "disable",
+                        "inactivity-timeout" : "300",
+                        "ip-escape-monitor" : "enable",
+                        "ip-escape-string" : "+++inet",
+                        "login" : "enable",
+                        "operation-mode" : "normal",
+                        "recv-monitor" : "0",
+                        "serial-escape-monitor" : "enable",
+                        "serial-escape-string" : "+++inet",
+                        "tcp-keepalive" : "3",
+                        "tftp" : "disable",
+                        "udp-inactivity" : "enable",
+                        "udp-inactivity-timeout" : "300",
+                        "udp-terminate-monitor" : "enable",
+                        "udp-terminate-string" : "+++inet",
+                        "watchdog" : "enable"
+                },
+                "inet_ppp0_config" :
+                {
+                        "authentication" : "disable",
+                        "comp-type" : "deflate",
+                        "compression" : "disable",
+                        "debug" : "disable",
+                        "dialing-retry-interval" : "15",
+                        "ipcp-mode" : "client-only",
+                        "local-ip-addr" : "0.0.0.0",
+                        "local-ip-mask" : "255.255.255.0",
+                        "remote-ip-addr" : "0.0.0.0",
+                        "remote-ip-mask" : "255.255.255.0",
+                        "trace" : "enable"
+                },
+                "inet_s0_config" :
+                {
+                        "buffer-datasize" : "0",
+                        "buffer-time" : "0",
+                        "connect-state" : "dialing",
+                        "data-bits" : "8",
+                        "dial-suffix" : "",
+                        "dialing-method" : "configuration",
+                        "dialout-monitor" : "disable",
+                        "flow-control" : "rts-cts",
+                        "hangup-string" : "",
+                        "ok-string" : "OK",
+                        "parity" : "none",
+                        "ring-string" : "",
+                        "stop-bits" : "1"
+                }
+        },
+        "lldp" :
+        {
+                "enabled" : false,
+                "sysDescr" : "",
+                "sysName" : "",
+                "txHold" : 4,
+                "txInterval" : 30
+        },
+        "loraNetwork" :
+        {
+                "__v" : 1,
+                "addressRange" :
+                {
+                        "end" : "FF:FF:FF:FE",
+                        "start" : "00:00:00:01"
+                },
+                "backupInterval" : 3600,
+                "basicStation" :
+                {
+                        "cert" : "",
+                        "cert2" : "",
+                        "conf" : "",
+                        "conf2" : "",
+                        "credentials" : "LNS",
+                        "credentials2" : "LNS",
+                        "key" : "",
+                        "key2" : "",
+                        "persistance" : false,
+                        "sign" : "",
+                        "sign2" : "",
+                        "trust" : "",
+                        "trust2" : "",
+                        "uri" : "",
+                        "uri2" : ""
+                },
+                "chirpstack" :
+                {
+                        "configs" :
+                        [
+                                {
+                                        "backend" :
+                                        {
+                                                "basicStation" :
+                                                {
+                                                        "bind" : "127.0.0.1:1780",
+                                                        "caCert" : "",
+                                                        "concentrators" :
+                                                        {
+                                                                "fsk" :
+                                                                {
+                                                                        "frequency" : 0
+                                                                },
+                                                                "lora_std" :
+                                                                {
+                                                                        "bandwidth" : 0,
+                                                                        "frequency" : 0,
+                                                                        "spreading_factor" : 0
+                                                                },
+                                                                "multi_sf" :
+                                                                {
+                                                                        "frequencies" : []
+                                                                }
+                                                        },
+                                                        "frequencyAS" : 922600000,
+                                                        "frequencyEU" : 867500000,
+                                                        "frequencyIN" : 866385000,
+                                                        "frequencyKR" : 922900000,
+                                                        "frequencyMax" : 928000000,
+                                                        "frequencyMin" : 902000000,
+                                                        "frequencyRU" : 0,
+                                                        "frequencySubBand" : 1,
+                                                        "pingInterval" : "1m0s",
+                                                        "readTimeout" : "1m5s",
+                                                        "region" : "US915",
+                                                        "statInterval" : "30s",
+                                                        "timesyncInternal" : "1h0m0s",
+                                                        "tlsCert" : "",
+                                                        "tlsKey" : "",
+                                                        "writeTimeout" : "1s"
+                                                },
+                                                "semtechUdp" :
+                                                {
+                                                        "fakeRxTime" : false,
+                                                        "skipCrcCheck" : false,
+                                                        "udpBind" : "127.0.0.1:1780"
+                                                },
+                                                "type" : "semtech_udp"
+                                        },
+                                        "filters" :
+                                        {
+                                                "joinEuis" : [],
+                                                "netIds" : []
+                                        },
+                                        "general" :
+                                        {
+                                                "logLevel" : 4,
+                                                "logToSyslog" : true
+                                        },
+                                        "integration" :
+                                        {
+                                                "marshaler" : "json",
+                                                "mqtt" :
+                                                {
+                                                        "auth" :
+                                                        {
+                                                                "azureIotHub" :
+                                                                {
+                                                                        "deviceConnectionString" : "",
+                                                                        "deviceId" : "",
+                                                                        "hostname" : "",
+                                                                        "sasTokenExpiration" : "24h0m0s",
+                                                                        "tlsCert" : "",
+                                                                        "tlsKey" : ""
+                                                                },
+                                                                "generic" :
+                                                                {
+                                                                        "caCert" : "",
+                                                                        "cleanSession" : true,
+                                                                        "clientId" : "",
+                                                                        "password" : "",
+                                                                        "qos" : 0,
+                                                                        "servers" :
+                                                                        [
+                                                                                "tcp://127.0.0.1:1883"
+                                                                        ],
+                                                                        "tlsCert" : "",
+                                                                        "tlsKey" : "",
+                                                                        "username" : ""
+                                                                },
+                                                                "type" : "generic"
+                                                        },
+                                                        "commandTopicTemplate" : "gateway/{{ .GatewayID }}/command/#",
+                                                        "eventTopicTemplate" : "gateway/{{ .GatewayID }}/event/{{ .EventType }}",
+                                                        "keepAlive" : "30s",
+                                                        "maxReconnectInterval" : "1m0s",
+                                                        "stateRetained" : true,
+                                                        "stateTopicTemplate" : "gateway/{{ .GatewayID }}/state/{{ .StateType }}",
+                                                        "terminateOnConnectError" : false
+                                                }
+                                        }
+                                },
+                                {
+                                        "backend" :
+                                        {
+                                                "basicStation" :
+                                                {
+                                                        "bind" : "127.0.0.1:1780",
+                                                        "caCert" : "",
+                                                        "concentrators" :
+                                                        {
+                                                                "fsk" :
+                                                                {
+                                                                        "frequency" : 0
+                                                                },
+                                                                "lora_std" :
+                                                                {
+                                                                        "bandwidth" : 0,
+                                                                        "frequency" : 0,
+                                                                        "spreading_factor" : 0
+                                                                },
+                                                                "multi_sf" :
+                                                                {
+                                                                        "frequencies" : []
+                                                                }
+                                                        },
+                                                        "frequencyAS" : 922600000,
+                                                        "frequencyEU" : 867500000,
+                                                        "frequencyIN" : 866385000,
+                                                        "frequencyKR" : 922900000,
+                                                        "frequencyMax" : 928000000,
+                                                        "frequencyMin" : 902000000,
+                                                        "frequencyRU" : 0,
+                                                        "frequencySubBand" : 1,
+                                                        "pingInterval" : "1m0s",
+                                                        "readTimeout" : "1m5s",
+                                                        "region" : "US915",
+                                                        "statInterval" : "30s",
+                                                        "timesyncInternal" : "1h0m0s",
+                                                        "tlsCert" : "",
+                                                        "tlsKey" : "",
+                                                        "writeTimeout" : "1s"
+                                                },
+                                                "semtechUdp" :
+                                                {
+                                                        "fakeRxTime" : false,
+                                                        "skipCrcCheck" : false,
+                                                        "udpBind" : "127.0.0.1:1780"
+                                                },
+                                                "type" : "semtech_udp"
+                                        },
+                                        "filters" :
+                                        {
+                                                "joinEuis" : [],
+                                                "netIds" : []
+                                        },
+                                        "general" :
+                                        {
+                                                "logLevel" : 4,
+                                                "logToSyslog" : true
+                                        },
+                                        "integration" :
+                                        {
+                                                "marshaler" : "json",
+                                                "mqtt" :
+                                                {
+                                                        "auth" :
+                                                        {
+                                                                "azureIotHub" :
+                                                                {
+                                                                        "deviceConnectionString" : "",
+                                                                        "deviceId" : "",
+                                                                        "hostname" : "",
+                                                                        "sasTokenExpiration" : "24h0m0s",
+                                                                        "tlsCert" : "",
+                                                                        "tlsKey" : ""
+                                                                },
+                                                                "generic" :
+                                                                {
+                                                                        "caCert" : "",
+                                                                        "cleanSession" : true,
+                                                                        "clientId" : "",
+                                                                        "password" : "",
+                                                                        "qos" : 0,
+                                                                        "servers" :
+                                                                        [
+                                                                                "tcp://127.0.0.1:1883"
+                                                                        ],
+                                                                        "tlsCert" : "",
+                                                                        "tlsKey" : "",
+                                                                        "username" : ""
+                                                                },
+                                                                "type" : "generic"
+                                                        },
+                                                        "commandTopicTemplate" : "gateway/{{ .GatewayID }}/command/#",
+                                                        "eventTopicTemplate" : "gateway/{{ .GatewayID }}/event/{{ .EventType }}",
+                                                        "keepAlive" : "30s",
+                                                        "maxReconnectInterval" : "1m0s",
+                                                        "stateRetained" : true,
+                                                        "stateTopicTemplate" : "gateway/{{ .GatewayID }}/state/{{ .StateType }}",
+                                                        "terminateOnConnectError" : false
+                                                }
+                                        }
+                                }
+                        ],
+                        "enabled" : false,
+                        "mode" : 0
+                },
+                "db" : "/var/config/lora/lora-network-server.db",
+                "defaultApp" :
+                {
+                        "apiVersion" : "1.0",
+                        "backhaulDetect" :
+                        {
+                                "enabled" : false,
+                                "payload" : "FF",
+                                "port" : 1,
+                                "timeout" : 300
+                        },
+                        "enabled" : false,
+                        "encodeHex" : false,
+                        "eui" : "",
+                        "log" :
+                        {
+                                "destination" : "SYSLOG",
+                                "level" : 30,
+                                "path" : "/var/log/lora-cloud-connector.log"
+                        },
+                        "module" : "",
+                        "options" :
+                        {
+                                "apikey" : "",
+                                "check_hostname" : false,
+                                "clean_session" : false,
+                                "client_cert" : "",
+                                "cloudService" : "MQTT",
+                                "downlinkTopic" : "lorawan/%(appeui)s/%(deveui)s/down",
+                                "overrideTopicsForAllApps" : false,
+                                "password" : "",
+                                "server_cert" : "",
+                                "uplinkTopic" : "lorawan/%(appeui)s/%(deveui)s/up",
+                                "username" : ""
+                        },
+                        "requestOptions" :
+                        {
+                                "api" : false,
+                                "log" : false,
+                                "lora" : false
+                        },
+                        "url" : ""
+                },
+                "log" :
+                {
+                        "console" : true,
+                        "level" : 30,
+                        "path" : "/var/log/lora-network-server.log",
+                        "syslog" : true
+                },
+                "lora" :
+                {
+                        "ADRStep" : 30,
+                        "adrNBTrans" : 0,
+                        "aesKey" : "ABCDEF0123456789ABCDEF0123456789",
+                        "antennaGain" : 3,
+                        "basicStationMode" : false,
+                        "beaconFreqHop" : true,
+                        "beaconFrequency" : 0,
+                        "beaconInfoDesc" : 0,
+                        "beaconInterval" : 0,
+                        "beaconLatitude" : 0,
+                        "beaconLongitude" : 0,
+                        "beaconPower" : 27,
+                        "calAD9361" : 77,
+                        "calTempRoom" : 22,
+                        "channelMask" : "",
+                        "channelPlan" : "US915",
+                        "classCAckTimeout" : 5000,
+                        "country" : "MANUAL",
+                        "deviceQueueSize" : 16,
+                        "diversity" : false,
+                        "dspStatInterval" : 10,
+                        "dutyCycleEnabled" : false,
+                        "dutyCyclePeriod" : 60,
+                        "dwelltimeDown" : 0,
+                        "dwelltimeUp" : 0,
+                        "enableAdr" : true,
+                        "enableStrictCounterValidation" : true,
+                        "enabled" : true,
+                        "fineTimestampEnable" : false,
+                        "fineTimestampMode" : "all_sf",
+                        "frequencyAS" : 922600000,
+                        "frequencyAS2" : 922600000,
+                        "frequencyBand" : 915,
+                        "frequencyBand2" : 0,
+                        "frequencyEU" : 867500000,
+                        "frequencyEU2" : 867500000,
+                        "frequencyIN" : 866385000,
+                        "frequencyIN2" : 866385000,
+                        "frequencyISM2400" : 2403000000,
+                        "frequencyISM2400_2" : 2425000000,
+                        "frequencyISM2400_2_1" : 2403000000,
+                        "frequencyISM2400_2_2" : 2425000000,
+                        "frequencyISM2400_2_3" : 2479000000,
+                        "frequencyISM2400_3" : 2479000000,
+                        "frequencyKR" : 922900000,
+                        "frequencyKR2" : 922900000,
+                        "frequencyRU" : 0,
+                        "frequencyRU2" : 0,
+                        "frequencySubBand" : 8,
+                        "frequencySubBand2" : 1,
+                        "fskSYNC" : "C194C1",
+                        "ftsMatchCRCError" : false,
+                        "ftsVersion" : 1,
+                        "gpsReceiver" : true,
+                        "joinDelay" : 5,
+                        "lbtEnabled" : false,
+                        "locked" : false,
+                        "locking" : false,
+                        "maxDatarate" : 3,
+                        "maxEIRP" : 20,
+                        "maxRx2PacketSize" : null,
+                        "maxTxPower" : 26,
+                        "minDatarate" : 0,
+                        "nbDSP" : 1,
+                        "netID" : "000000",
+                        "networkLeadTime" : 500,
+                        "packetForwarderConfig" : "",
+                        "packetForwarderConfig2" : "",
+                        "packetForwarderMode" : false,
+                        "pingSlotDatarate" : 8,
+                        "pingSlotFreqHop" : true,
+                        "pingSlotFrequency" : 0,
+                        "reducedPacketUpdates" : false,
+                        "rssiOffset" : -215.40000000000001,
+                        "rx1DatarateOffset" : 0,
+                        "rx1Delay" : 1,
+                        "rx2Datarate" : 10,
+                        "skipPacketForwarderFieldCheck" : false,
+                        "spi_device" : "/dev/spidev0.0",
+                        "spi_device1261" : "/dev/spidev0.1"
+                },
+                "mqtt" :
+                {
+                        "enabled" : true,
+                        "host" : "127.0.0.1",
+                        "password" : "",
+                        "port" : 1883,
+                        "username" : ""
+                },
+                "network" :
+                {
+                        "__v" : 1,
+                        "addressRange" :
+                        {
+                                "end" : "FF:FF:FF:FE",
+                                "start" : "00:00:00:01"
+                        },
+                        "backupInterval" : 3600,
+                        "baseKey" : "",
+                        "basicStation" :
+                        {
+                                "cert" : "",
+                                "cert2" : "",
+                                "conf" : "",
+                                "conf2" : "",
+                                "credentials" : "LNS",
+                                "credentials2" : "LNS",
+                                "key" : "",
+                                "key2" : "",
+                                "trust" : "",
+                                "trust2" : "",
+                                "uri" : "",
+                                "uri2" : ""
+                        },
+                        "channelPlan" : "4",
+                        "db" : "/var/config/lora/lora-network-server.db",
+                        "defaultApp" :
+                        {
+                                "enabled" : false,
+                                "eui" : "",
+                                "options" :
+                                {
+                                        "apikey" : "",
+                                        "check_hostname" : false,
+                                        "client_cert" : "",
+                                        "password" : "",
+                                        "server_cert" : "",
+                                        "username" : ""
+                                },
+                                "url" : ""
+                        },
+                        "defaultProfile" : "DEFAULT-CLASS-A",
+                        "eui" : "1919191919191919",
+                        "frequencySubBand" : 8,
+                        "gatewayTimeoutThreshold" : 120,
+                        "joinServer" : "https://join.devicehq.com/api/m1/joinreq",
+                        "joinServerAppEUI" : "",
+                        "joinServerCert" : "",
+                        "joinServerCertFile" : "/etc/ssl/certs/DigiCert_Global_Root_CA.pem",
+                        "joinServerCertUseFile" : true,
+                        "joinServerCheck" : true,
+                        "joinServerClientCert" : "",
+                        "joinServerClientKey" : "",
+                        "key" : "19191919191919191919191919191919",
+                        "leasetime" : 0,
+                        "lensCheckinInterval" : 3600,
+                        "lensDeviceHQ" : true,
+                        "lensEnabled" : false,
+                        "lensGatewayStats" : true,
+                        "lensLocalJoinMetadata" : true,
+                        "lensNetworkStats" : true,
+                        "lensPacketData" : false,
+                        "lensPacketMetadata" : true,
+                        "lensPacketPayloadData" : false,
+                        "lensServer" : "https://lens.devicehq.com/api/",
+                        "localJoinServerEnabled" : true,
+                        "log" :
+                        {
+                                "console" : true,
+                                "level" : 100,
+                                "path" : "/var/log/lora-network-server.log",
+                                "syslog" : false
+                        },
+                        "lora" :
+                        {
+                                "ADRStep" : 30,
+                                "aesKey" : "ABCDEF0123456789ABCDEF0123456789",
+                                "antennaGain" : 3,
+                                "basicStationMode" : false,
+                                "beaconFreqHop" : true,
+                                "beaconFrequency" : 0,
+                                "beaconInfoDesc" : 0,
+                                "beaconInterval" : 0,
+                                "beaconLatitude" : 0,
+                                "beaconLongitude" : 0,
+                                "beaconPower" : 27,
+                                "calAD9361" : 77,
+                                "calTempRoom" : 22,
+                                "channelMask" : "",
+                                "channelPlan" : "US915",
+                                "classCAckTimeout" : 5000,
+                                "deviceQueueSize" : 16,
+                                "diversity" : false,
+                                "dspStatInterval" : 10,
+                                "dutyCyclePeriod" : 60,
+                                "dwelltimeDown" : 0,
+                                "dwelltimeUp" : 0,
+                                "enableStrictCounterValidation" : true,
+                                "enabled" : true,
+                                "frequencyAS" : 922600000,
+                                "frequencyAS2" : 922600000,
+                                "frequencyBand" : 915,
+                                "frequencyBand2" : 0,
+                                "frequencyEU" : 867500000,
+                                "frequencyEU2" : 867500000,
+                                "frequencyIN" : 866385000,
+                                "frequencyIN2" : 866385000,
+                                "frequencyISM2400" : 2403000000,
+                                "frequencyISM2400_2" : 2425000000,
+                                "frequencyISM2400_2_1" : 2403000000,
+                                "frequencyISM2400_2_2" : 2425000000,
+                                "frequencyISM2400_2_3" : 2479000000,
+                                "frequencyISM2400_3" : 2479000000,
+                                "frequencyKR" : 922900000,
+                                "frequencyKR2" : 922900000,
+                                "frequencyRU" : 0,
+                                "frequencyRU2" : 0,
+                                "frequencySubBand" : "4",
+                                "frequencySubBand2" : 1,
+                                "fskSYNC" : "C194C1",
+                                "ftsMatchCRCError" : false,
+                                "ftsVersion" : 1,
+                                "gpsReceiver" : true,
+                                "joinDelay" : 5,
+                                "lbtEnabled" : false,
+                                "maxDatarate" : 3,
+                                "maxEIRP" : 20,
+                                "maxTxPower" : 26,
+                                "minDatarate" : 0,
+                                "nbDSP" : 1,
+                                "netID" : "000000",
+                                "networkLeadTime" : 500,
+                                "packetForwarderConfig" : "",
+                                "packetForwarderConfig2" : "",
+                                "packetForwarderMode" : false,
+                                "pingSlotDatarate" : 8,
+                                "pingSlotFreqHop" : true,
+                                "pingSlotFrequency" : 0,
+                                "reducedPacketUpdates" : false,
+                                "rx1DatarateOffset" : 0,
+                                "rx1Delay" : 1,
+                                "rx2Datarate" : 2,
+                                "skipPacketForwarderFieldCheck" : false,
+                                "spi_device" : "/dev/spidev0.0"
+                        },
+                        "mqtt" :
+                        {
+                                "enabled" : true,
+                                "host" : "127.0.0.1",
+                                "password" : "",
+                                "port" : 1883,
+                                "username" : ""
+                        },
+                        "name" : "MTCDT-19214966",
+                        "network" :
+                        {
+                                "baseKey" : "",
+                                "defaultProfile" : "DEFAULT-CLASS-A",
+                                "eui" : "7766554433221100",
+                                "joinServer" : "https://join.devicehq.com/api/m1/joinreq",
+                                "key" : "77665544332211007766554433221100",
+                                "leasetime" : 0,
+                                "lensCheckinInterval" : 3600,
+                                "lensDeviceHQ" : true,
+                                "lensEnabled" : false,
+                                "lensGatewayStats" : true,
+                                "lensLocalJoinMetadata" : true,
+                                "lensNetworkStats" : true,
+                                "lensPacketMetadata" : true,
+                                "lensPacketPayloadData" : false,
+                                "lensServer" : "https://lens.devicehq.com/api/",
+                                "localJoinServerEnabled" : true,
+                                "name" : "MTCDT-19214966",
+                                "passphrase" : "",
+                                "public" : 1,
+                                "salt" : ""
+                        },
+                        "packetForwarder" :
+                        {
+                                "aesKey" : "ABCDEF0123456789ABCDEF0123456789",
+                                "antennaGain" : 3,
+                                "autoquitThreshold" : 60,
+                                "beaconFreqHop" : true,
+                                "beaconFrequency" : 923300000,
+                                "beaconInfoDesc" : 0,
+                                "beaconInterval" : 0,
+                                "beaconLatitude" : 0,
+                                "beaconLongitude" : 0,
+                                "beaconPower" : 27,
+                                "calAD9361" : 77,
+                                "calTempRoom" : 22,
+                                "channelPlan" : "US915",
+                                "diversity" : false,
+                                "downstreamPort" : 1782,
+                                "dspStatInterval" : 10,
+                                "frequencyAS" : 922600000,
+                                "frequencyAS2" : 922600000,
+                                "frequencyEU" : 867500000,
+                                "frequencyEU2" : 867500000,
+                                "frequencyIN" : 866385000,
+                                "frequencyIN2" : 866385000,
+                                "frequencyISM2400" : 2403000000,
+                                "frequencyISM2400_2" : 2425000000,
+                                "frequencyISM2400_2_1" : 2403000000,
+                                "frequencyISM2400_2_2" : 2425000000,
+                                "frequencyISM2400_2_3" : 2479000000,
+                                "frequencyISM2400_3" : 2479000000,
+                                "frequencyKR" : 922900000,
+                                "frequencyKR2" : 922900000,
+                                "frequencyRU" : 0,
+                                "frequencyRU2" : 0,
+                                "frequencySubBand" : 1,
+                                "frequencySubBand2" : 1,
+                                "fskSYNC" : "C194C1",
+                                "ftsMatchCRCError" : false,
+                                "ftsVersion" : 1,
+                                "fwdCrcDisabled" : false,
+                                "fwdCrcError" : true,
+                                "fwdCrcValid" : true,
+                                "gpsReceiver" : true,
+                                "gwID" : "0000000000000000",
+                                "gwID2" : "0000000000000000",
+                                "gwSource" : 1,
+                                "keepAliveInterval" : 10,
+                                "lbtDefaultChannels" : true,
+                                "lbtEnabled" : false,
+                                "lbtFrequency0" : 923000000,
+                                "lbtFrequency1" : 923200000,
+                                "lbtFrequency2" : 923400000,
+                                "lbtFrequency3" : 923800000,
+                                "lbtFrequency4" : 924000000,
+                                "lbtFrequency5" : 924200000,
+                                "lbtFrequency6" : 924400000,
+                                "lbtFrequency7" : 924600000,
+                                "lbtRssiOffset" : -4,
+                                "lbtRssiTarget" : -80,
+                                "lbtScanTime" : 5000,
+                                "manualMode" : false,
+                                "nbDSP" : 1,
+                                "path" : "/opt/lora/lora_pkt_fwd",
+                                "pathGeo" : "/opt/lora/pkt_forwarder",
+                                "public" : true,
+                                "pushTimeout" : 100,
+                                "serverAddress" : "127.0.0.1",
+                                "statInterval" : 20,
+                                "upstreamPort" : 1780
+                        },
+                        "passphrase" : "",
+                        "public" : 1,
+                        "redundancy" :
+                        {
+                                "defaultInterval" : 90,
+                                "enabled" : false,
+                                "failoverInterval" : 15,
+                                "primaryAddress" : "192.168.2.2",
+                                "role" : "PRIMARY",
+                                "secondaryAddress" : "192.168.2.3"
+                        },
+                        "salt" : "",
+                        "spectralScan" :
+                        {
+                                "bandwidth" : 200,
+                                "duration" : 60,
+                                "enabled" : false,
+                                "floor" : -120,
+                                "imme" : false,
+                                "interval" : 1,
+                                "limit" : 0,
+                                "offset" : 0,
+                                "ranges" :
+                                [
+                                        {
+                                                "start" : 902100000,
+                                                "stop" : 903900000
+                                        },
+                                        {
+                                                "start" : 923000000,
+                                                "stop" : 928000000
+                                        }
+                                ],
+                                "samples" : 10000,
+                                "startAt" : "09:00:00",
+                                "step" : 200000,
+                                "stopCriteria" : 0
+                        },
+                        "test" :
+                        {
+                                "disableDutyCycle" : false,
+                                "disableGPS" : false,
+                                "disableRxJoin1" : false,
+                                "disableRxJoin2" : false,
+                                "disableRxWindow1" : false,
+                                "disableRxWindow2" : false
+                        },
+                        "trimInterval" : 600,
+                        "trimRows" : 100,
+                        "udp" :
+                        {
+                                "allowPublic" : true,
+                                "appPortDown" : 1786,
+                                "appPortUp" : 1784,
+                                "downstreamPort" : 1782,
+                                "upstreamPort" : 1780
+                        },
+                        "whitelist" :
+                        {
+                                "devices" : [],
+                                "enabled" : true
+                        }
+                },
+                "packetForwarder" :
+                {
+                        "aesKey" : "ABCDEF0123456789ABCDEF0123456789",
+                        "antennaGain" : 3,
+                        "autoquitThreshold" : 60,
+                        "beaconFreqHop" : true,
+                        "beaconFrequency" : 923300000,
+                        "beaconInfoDesc" : 0,
+                        "beaconInterval" : 0,
+                        "beaconLatitude" : 0,
+                        "beaconLongitude" : 0,
+                        "beaconPower" : 27,
+                        "calAD9361" : 77,
+                        "calTempRoom" : 22,
+                        "channelPlan" : "US915",
+                        "country" : "MANUAL",
+                        "diversity" : false,
+                        "downstreamPort" : 1782,
+                        "downstreamPort2" : 1782,
+                        "dspStatInterval" : 10,
+                        "fineTimestampEnable" : false,
+                        "fineTimestampMode" : "all_sf",
+                        "frequencyAS" : 922600000,
+                        "frequencyAS2" : 922600000,
+                        "frequencyEU" : 867500000,
+                        "frequencyEU2" : 867500000,
+                        "frequencyIN" : 866385000,
+                        "frequencyIN2" : 866385000,
+                        "frequencyISM2400" : 2403000000,
+                        "frequencyISM2400_2" : 2425000000,
+                        "frequencyISM2400_2_1" : 2403000000,
+                        "frequencyISM2400_2_2" : 2425000000,
+                        "frequencyISM2400_2_3" : 2479000000,
+                        "frequencyISM2400_3" : 2479000000,
+                        "frequencyKR" : 922900000,
+                        "frequencyKR2" : 922900000,
+                        "frequencyRU" : 0,
+                        "frequencyRU2" : 0,
+                        "frequencySubBand" : 1,
+                        "frequencySubBand2" : 1,
+                        "fskSYNC" : "C194C1",
+                        "ftsMatchCRCError" : false,
+                        "ftsVersion" : 1,
+                        "fwdCrcDisabled" : false,
+                        "fwdCrcError" : true,
+                        "fwdCrcValid" : true,
+                        "gpsReceiver" : true,
+                        "gwID" : "0000000000000000",
+                        "gwID2" : "0000000000000000",
+                        "gwSource" : 1,
+                        "keepAliveInterval" : 10,
+                        "lbtDefaultChannels" : true,
+                        "lbtEnabled" : false,
+                        "lbtFrequency0" : 923000000,
+                        "lbtFrequency1" : 923200000,
+                        "lbtFrequency2" : 923400000,
+                        "lbtFrequency3" : 923800000,
+                        "lbtFrequency4" : 924000000,
+                        "lbtFrequency5" : 924200000,
+                        "lbtFrequency6" : 924400000,
+                        "lbtFrequency7" : 924600000,
+                        "lbtRssiOffset" : -4,
+                        "lbtRssiTarget" : -80,
+                        "lbtScanTime" : 5000,
+                        "locked" : false,
+                        "locking" : false,
+                        "manualMode" : false,
+                        "maxTxPower" : 26,
+                        "nbDSP" : 1,
+                        "path" : "/opt/lora/lora_pkt_fwd",
+                        "pathGeo" : "/opt/lora/pkt_forwarder",
+                        "public" : true,
+                        "pushTimeout" : 100,
+                        "rssiOffset" : -215.40000000000001,
+                        "serverAddress" : "127.0.0.1",
+                        "serverAddress2" : "127.0.0.1",
+                        "spreadingFactorEnable" :
+                        [
+                                5,
+                                6,
+                                7,
+                                8,
+                                9,
+                                10,
+                                11,
+                                12
+                        ],
+                        "spreadingFactorEnable2" :
+                        [
+                                5,
+                                6,
+                                7,
+                                8,
+                                9,
+                                10,
+                                11,
+                                12
+                        ],
+                        "statInterval" : 20,
+                        "upstreamPort" : 1780,
+                        "upstreamPort2" : 1780
+                },
+                "radiobridgeConsole" :
+                {
+                        "enabled" : false,
+                        "name" : "Multitech Gateway",
+                        "region" : "US915",
+                        "token" : "",
+                        "validated" : false
+                },
+                "redundancy" :
+                {
+                        "defaultInterval" : 90,
+                        "enabled" : false,
+                        "failoverInterval" : 15,
+                        "primaryAddress" : "192.168.2.2",
+                        "role" : "PRIMARY",
+                        "secondaryAddress" : "192.168.2.3"
+                },
+                "spectralScan" :
+                {
+                        "bandwidth" : 200,
+                        "duration" : 60,
+                        "enabled" : false,
+                        "floor" : -120,
+                        "imme" : false,
+                        "interval" : 1,
+                        "limit" : 0,
+                        "offset" : 0,
+                        "ranges" :
+                        [
+                                {
+                                        "start" : 902100000,
+                                        "stop" : 903900000
+                                },
+                                {
+                                        "start" : 923000000,
+                                        "stop" : 928000000
+                                }
+                        ],
+                        "samples" : 10000,
+                        "startAt" : "09:00:00",
+                        "step" : 200000,
+                        "stopCriteria" : 0
+                },
+                "test" :
+                {
+                        "disableDutyCycle" : false,
+                        "disableGPS" : false,
+                        "disableRxJoin1" : false,
+                        "disableRxJoin2" : false,
+                        "disableRxWindow1" : false,
+                        "disableRxWindow2" : false
+                },
+                "trafficManager" :
+                {
+                        "dev_eui_filters" : [],
+                        "enabled" : false,
+                        "join_eui_filters" : []
+                },
+                "trimInterval" : 600,
+                "trimRows" : 100,
+                "udp" :
+                {
+                        "allowPublic" : true,
+                        "appPortDown" : 1786,
+                        "appPortUp" : 1784,
+                        "downstreamPort" : 1782,
+                        "upstreamPort" : 1780
+                },
+                "whitelist" :
+                {
+                        "devices" : [],
+                        "enabled" : true
+                }
+        },
+        "mqttBroker" :
+        {
+                "bridge" :
+                {
+                        "authMethod" : "noAuth",
+                        "certificate" : "",
+                        "cleanSession" : false,
+                        "clientId" : "",
+                        "enabled" : false,
+                        "identity" : "",
+                        "notifications" : true,
+                        "password" : "",
+                        "privateKey" : "",
+                        "protocolVersion" : "mqttv31",
+                        "psk" : "",
+                        "secondaryAddress" : "",
+                        "secondaryPort" : 1883,
+                        "serverAddress" : "",
+                        "serverPort" : 1883,
+                        "tlsEnabled" : false,
+                        "tlsVersion" : "tlsv1.2",
+                        "topics" : [],
+                        "tryPrivate" : true,
+                        "username" : "",
+                        "verifyHostname" : false
+                }
+        },
+        "nat" : [],
+        "ni" :
+        {
+                "__v" : 3,
+                "nis" :
+                [
+                        {
+                                "available" : true,
+                                "bridge" : "--",
+                                "ipv4" :
+                                {
+                                        "dns1" : "8.8.8.8",
+                                        "dns2" : "",
+                                        "gateway" : "192.168.2.254",
+                                        "ip" : "192.168.2.201",
+                                        "mask" : "255.255.255.0",
+                                        "mode" : "STATIC",
+                                        "wanMasquerade" : true
+                                },
+                                "ipv6" :
+                                {
+                                        "delegatedPrefixLength" : 64,
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "enabled" : false,
+                                        "fixedIp" : [],
+                                        "gateway" : "",
+                                        "ip" : [],
+                                        "linkLocalIp" : [],
+                                        "mode" : "AUTO",
+                                        "prefixDelegationEnabled" : false
+                                },
+                                "name" : "eth0",
+                                "nitype" : "ETHER",
+                                "type" : "WAN"
+                        },
+                        {
+                                "available" : false,
+                                "bridge" : "br0",
+                                "dot1x" :
+                                {
+                                        "authType" : "",
+                                        "enabled" : false,
+                                        "params" :
+                                        {
+                                                "anonymousIdentity" : "",
+                                                "caCertificate" : "",
+                                                "clientCertificate" : "",
+                                                "domainMatch" : "",
+                                                "identity" : "",
+                                                "innerAuthType" : "",
+                                                "password" : "",
+                                                "peapVersion" : -1,
+                                                "privateKey" : "",
+                                                "privateKeyPassword" : "",
+                                                "subjectMatch" : ""
+                                        },
+                                        "status" : "unauthorized"
+                                },
+                                "ipv4" :
+                                {
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "gateway" : "",
+                                        "ip" : "",
+                                        "mask" : "",
+                                        "mode" : "",
+                                        "wanMasquerade" : true
+                                },
+                                "ipv6" :
+                                {
+                                        "delegatedPrefixLength" : 64,
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "enabled" : false,
+                                        "fixedIp" : [],
+                                        "gateway" : "",
+                                        "ip" : [],
+                                        "linkLocalIp" : [],
+                                        "mode" : "DELEGATED",
+                                        "prefixDelegationEnabled" : false
+                                },
+                                "name" : "eth1",
+                                "nitype" : "ETHER",
+                                "type" : "LAN"
+                        },
+                        {
+                                "available" : false,
+                                "bridge" : "br0",
+                                "dot1x" :
+                                {
+                                        "authType" : "",
+                                        "enabled" : false,
+                                        "params" :
+                                        {
+                                                "anonymousIdentity" : "",
+                                                "caCertificate" : "",
+                                                "clientCertificate" : "",
+                                                "domainMatch" : "",
+                                                "identity" : "",
+                                                "innerAuthType" : "",
+                                                "password" : "",
+                                                "peapVersion" : -1,
+                                                "privateKey" : "",
+                                                "privateKeyPassword" : "",
+                                                "subjectMatch" : ""
+                                        },
+                                        "status" : "unauthorized"
+                                },
+                                "ipv4" :
+                                {
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "gateway" : "",
+                                        "ip" : "",
+                                        "mask" : "",
+                                        "mode" : "",
+                                        "wanMasquerade" : true
+                                },
+                                "ipv6" :
+                                {
+                                        "delegatedPrefixLength" : 64,
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "enabled" : false,
+                                        "fixedIp" : [],
+                                        "gateway" : "",
+                                        "ip" : [],
+                                        "linkLocalIp" : [],
+                                        "mode" : "DELEGATED",
+                                        "prefixDelegationEnabled" : false
+                                },
+                                "name" : "eth2",
+                                "nitype" : "ETHER",
+                                "type" : "LAN"
+                        },
+                        {
+                                "available" : false,
+                                "bridge" : "--",
+                                "ipv4" :
+                                {
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "gateway" : "",
+                                        "ip" : "",
+                                        "mask" : "",
+                                        "mode" : "PPP",
+                                        "wanMasquerade" : true
+                                },
+                                "ipv6" :
+                                {
+                                        "delegatedPrefixLength" : 64,
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "enabled" : false,
+                                        "fixedIp" : [],
+                                        "gateway" : "",
+                                        "ip" : [],
+                                        "linkLocalIp" : [],
+                                        "mode" : "AUTO",
+                                        "prefixDelegationEnabled" : false
+                                },
+                                "name" : "ppp0",
+                                "nitype" : "PPP",
+                                "type" : "WAN"
+                        },
+                        {
+                                "available" : false,
+                                "bridge" : "--",
+                                "ipv4" :
+                                {
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "gateway" : "",
+                                        "ip" : "",
+                                        "mask" : "",
+                                        "mode" : "DHCP",
+                                        "wanMasquerade" : true
+                                },
+                                "ipv6" :
+                                {
+                                        "delegatedPrefixLength" : 64,
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "enabled" : false,
+                                        "fixedIp" : [],
+                                        "gateway" : "",
+                                        "ip" : [],
+                                        "linkLocalIp" : [],
+                                        "mode" : "AUTO",
+                                        "prefixDelegationEnabled" : false
+                                },
+                                "name" : "wlan0",
+                                "nitype" : "WIFI_AS_WAN",
+                                "type" : "WAN"
+                        },
+                        {
+                                "available" : false,
+                                "bridge" : "br0",
+                                "ipv4" :
+                                {
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "gateway" : "",
+                                        "ip" : "",
+                                        "mask" : "",
+                                        "mode" : "STATIC",
+                                        "wanMasquerade" : true
+                                },
+                                "ipv6" :
+                                {
+                                        "delegatedPrefixLength" : 64,
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "enabled" : false,
+                                        "fixedIp" : [],
+                                        "gateway" : "",
+                                        "ip" : [],
+                                        "linkLocalIp" : [],
+                                        "mode" : "DELEGATED",
+                                        "prefixDelegationEnabled" : false
+                                },
+                                "name" : "wlan1",
+                                "nitype" : "WIFI_AP",
+                                "type" : "LAN"
+                        },
+                        {
+                                "available" : true,
+                                "bridge" : "br0",
+                                "ipv4" :
+                                {
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "gateway" : "",
+                                        "ip" : "193.168.2.1",
+                                        "mask" : "255.255.255.0",
+                                        "mode" : "STATIC",
+                                        "wanMasquerade" : true
+                                },
+                                "ipv6" :
+                                {
+                                        "delegatedPrefixLength" : 64,
+                                        "dns1" : "",
+                                        "dns2" : "",
+                                        "enabled" : false,
+                                        "fixedIp" : [],
+                                        "gateway" : "",
+                                        "ip" : [],
+                                        "linkLocalIp" : [],
+                                        "mode" : "DELEGATED",
+                                        "prefixDelegationEnabled" : false
+                                },
+                                "name" : "br0",
+                                "nitype" : "BRIDGE",
+                                "type" : "LAN"
+                        }
+                ]
+        },
+        "nodeRed" :
+        {
+                "enabled" : false
+        },
+        "notificationEventGroup" :
+        {
+                "eventsGroups" :
+                [
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "eventGroup" : "Authentication",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "eventGroup" : "Chassis",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "eventGroup" : "Configuration",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "eventGroup" : "Link",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "eventGroup" : "Security",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        },
+                        {
+                                "email" : false,
+                                "enabled" : false,
+                                "eventGroup" : "Wan",
+                                "notifyGroup" : "",
+                                "sms" : false,
+                                "snmp" : false
+                        }
+                ],
+                "groups" : []
+        },
+        "ovpnTunnels" : [],
+        "passwordComplexityRules" :
+        {
+                "charactersNotPermitted" : "",
+                "creditMode" : false,
+                "lowerCaseExtraCreditCap" : 0,
+                "maxPasswordAge" : 0,
+                "maxPasswordLength" : 64,
+                "minCharClasses" : 3,
+                "minLowerCaseChars" : 0,
+                "minNumeralChars" : 0,
+                "minOtherChars" : 0,
+                "minPasswordAge" : 0,
+                "minPasswordLength" : 8,
+                "minUpperCaseChars" : 0,
+                "numeralExtraCreditCap" : 0,
+                "otherExtraCreditCap" : 0,
+                "passwordHistoryLength" : 0,
+                "upperCaseExtraCreditCap" : 0
+        },
+        "policy" :
+        {
+                "policy" : "This system is for the use of authorized users only. Individuals using this system without authority, or in excess of their authority, are subject to having all their activities on this system monitored and recorded by system personnel.\nAnyone using this system expressly consents to such monitoring and is advised that if such monitoring reveals possible evidence of criminal activity, system personnel may provide the evidence of such monitoring to law enforcement officials."
+        },
+        "ppp" :
+        {
+                "__v" : 1,
+                "advancedCarrierConfig" :
+                {
+                        "enabled" : false,
+                        "mccMncFilter" : "",
+                        "ueModeOfOperation" : "AUTO"
+                },
+                "authentication" :
+                {
+                        "password" : "admin",
+                        "type" : "NONE",
+                        "username" : "admin"
+                },
+                "cellularMode" : "auto",
+                "connectTimeout" : 90,
+                "dialOnDemand" : false,
+                "diversity" : true,
+                "enabled" : true,
+                "idleTimeout" : 180,
+                "keepAlive" :
+                {
+                        "dataRecv" :
+                        {
+                                "enabled" : true,
+                                "window" : 30
+                        },
+                        "enabled" : true,
+                        "hostname" : "www.google.com",
+                        "icmpCount" : 4,
+                        "packetSize" : 56,
+                        "pingInterval" : 60,
+                        "radioReboot" :
+                        {
+                                "enabled" : true
+                        },
+                        "tcpPort" : 80,
+                        "type" : "ICMP"
+                },
+                "maxRetries" : 0,
+                "modem" :
+                {
+                        "apnString" : "psmtneofin",
+                        "baudRate" : 115200,
+                        "commands" : [],
+                        "connectString" : "CONNECT",
+                        "contextId" : 1,
+                        "contextIpMode" : "AUTO",
+                        "dialNumber" : "*99***1#",
+                        "dialPrefix" : "ATDT",
+                        "fwSwitch" : "att",
+                        "initStrings" :
+                        [
+                                "at+csq?",
+                                "",
+                                "",
+                                ""
+                        ],
+                        "simPin" : ""
+                },
+                "mru" : 1500,
+                "mtu" : 1500,
+                "nat" : true,
+                "netreg" :
+                {
+                        "enabled" : false,
+                        "timeout" : 120
+                },
+                "powerOnInitString" : "",
+                "protocol" : "WWAN",
+                "wakeUpOnCall" :
+                {
+                        "ackString" : "",
+                        "callerIds" : [],
+                        "delay" : 10,
+                        "enabled" : false,
+                        "fromLan" : false,
+                        "initStrings" : [],
+                        "onCallerId" : false,
+                        "onRing" : false,
+                        "onSms" : false
+                }
+        },
+        "radius" :
+        {
+                "acctEnabled" : false,
+                "acctPort" : 1813,
+                "anonymousEnabled" : false,
+                "anonymousId" : "anonymous",
+                "authEnabled" : false,
+                "authPort" : 1812,
+                "authType" : "PAP",
+                "checkServer" : true,
+                "host" : "",
+                "retries" : 3,
+                "secondaryAcctPort" : 1813,
+                "secondaryAuthPort" : 1812,
+                "secondaryHost" : "",
+                "secret" : "",
+                "timeout" : 2
+        },
+        "remoteAccess" :
+        {
+                "__v" : 1,
+                "bruteForcePrevention" :
+                {
+                        "enabled" : true,
+                        "failAttempts" : 3,
+                        "lockoutSeconds" : 300
+                },
+                "dosAttackPrevention" :
+                {
+                        "enabled" : true,
+                        "limitBurst" : 100,
+                        "limitPerMinute" : 60
+                },
+                "http" :
+                {
+                        "enabled" : true,
+                        "lan" : true,
+                        "port" : 80,
+                        "redirectToHttps" : true,
+                        "wan" : true
+                },
+                "https" :
+                {
+                        "enabled" : true,
+                        "lan" : true,
+                        "port" : 443,
+                        "wan" : true
+                },
+                "icmp" :
+                {
+                        "enabled" : true,
+                        "respondToLan" : true,
+                        "respondToWan" : false
+                },
+                "modbusSlave" :
+                {
+                        "enabled" : false,
+                        "lan" : true,
+                        "port" : 1502
+                },
+                "nodeRed" :
+                {
+                        "lan" : true,
+                        "wan" : false
+                },
+                "pingLimit" :
+                {
+                        "enabled" : true,
+                        "limitBurst" : 30,
+                        "limitPerSecond" : 10
+                },
+                "privateWan" : false,
+                "reverseSsh" :
+                {
+                        "authMode" : "PASSWORD",
+                        "enabled" : false,
+                        "password" : "",
+                        "privateKey" : "",
+                        "remotePort" : 2222,
+                        "serverAddress" : "",
+                        "serverPort" : 22,
+                        "username" : ""
+                },
+                "snmp" :
+                {
+                        "lan" : true,
+                        "wan" : false
+                },
+                "ssh" :
+                {
+                        "enabled" : true,
+                        "lan" : true,
+                        "port" : 22,
+                        "wan" : true
+                },
+                "timeoutSeconds" : 300
+        },
+        "remoteManagement" :
+        {
+                "__v" : 1,
+                "accountKey" : "E3063098-73B8-4504-AD83-714E9C00E381",
+                "allowConfigurationUpgrade" : true,
+                "allowConfigurationUpload" : true,
+                "allowFirmwareUpgrade" : true,
+                "allowRadioFirmwareUpgrade" : true,
+                "checkInDateTime" :
+                {
+                        "customDays" : [],
+                        "customTime" : "00:00:00",
+                        "dailyTime" : "00:00:00",
+                        "repeatable" : false,
+                        "repeatableMode" : "DAILY",
+                        "single" : false,
+                        "singleDate" : "",
+                        "singleTime" : ""
+                },
+                "enabled" : true,
+                "gpsDataInterval" : 43200,
+                "intervalsEnabled" : true,
+                "machineApiAuthToken" : "",
+                "machineApiSecret" : "",
+                "queryServerInterval" : 43200,
+                "serverName" : "ds.devicehq.com",
+                "serverPort" : 5798,
+                "sslEnabled" : true,
+                "syncWithDialOnDemand" : false
+        },
+        "resetButton" :
+        {
+                "enabled" : true,
+                "resetToFactoryDefault" : true,
+                "resetToUserDefinedDefault" : false
+        },
+        "routes" : [],
+        "saveAndRestore" :
+        {
+                "exportPayloadManagement" : true
+        },
+        "scada" :
+        {
+                "bacnetOut" :
+                {
+                        "apduRetries" : 3,
+                        "apduTimeout" : 3,
+                        "datalink" :
+                        {
+                                "ip" :
+                                {
+                                        "enabled" : false,
+                                        "interface" : "br0",
+                                        "port" : 47808
+                                }
+                        },
+                        "description" : "",
+                        "location" : "",
+                        "modelName" : "",
+                        "objectIdentifier" : 4194303,
+                        "objectName" : "",
+                        "vendorIdentifier" : 1331,
+                        "vendorName" : "Multi-Tech Systems, Inc."
+                },
+                "sensors" :
+                {
+                        "defaultTtl" : 86400
+                }
+        },
+        "secureProtocols" :
+        [
+                {
+                        "__v" : 2,
+                        "cipherSuite" : "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-GCM-SHA384:AES256-SHA:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA:AES128-SHA",
+                        "cipherSuiteAvailable" : "",
+                        "cipherSuiteAvailableTls13" : "",
+                        "cipherSuiteDeprecated" : [],
+                        "cipherSuiteTls13" : "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256",
+                        "client" :
+                        {
+                                "verify" : false
+                        },
+                        "name" : "ser-cli-serial",
+                        "protocol" :
+                        {
+                                "tls1_1" : false,
+                                "tls1_2" : true,
+                                "tls1_3" : true
+                        },
+                        "type" : "openssl"
+                },
+                {
+                        "__v" : 2,
+                        "cipherSuite" : "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-GCM-SHA384:AES256-SHA:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA:AES128-SHA",
+                        "cipherSuiteAvailable" : "",
+                        "cipherSuiteAvailableTls13" : "",
+                        "cipherSuiteDeprecated" : [],
+                        "cipherSuiteTls13" : "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256",
+                        "client" :
+                        {
+                                "verify" : false
+                        },
+                        "name" : "ser-cli-bluetooth",
+                        "protocol" :
+                        {
+                                "tls1_1" : false,
+                                "tls1_2" : true,
+                                "tls1_3" : true
+                        },
+                        "type" : "openssl"
+                },
+                {
+                        "__v" : 2,
+                        "cipherSuite" : "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-GCM-SHA384:AES256-SHA:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES128-SHA:AES128-SHA",
+                        "cipherSuiteAvailable" : "",
+                        "cipherSuiteAvailableTls13" : "",
+                        "cipherSuiteDeprecated" : [],
+                        "cipherSuiteTls13" : "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256",
+                        "client" :
+                        {
+                                "verify" : false
+                        },
+                        "name" : "lighttpd",
+                        "protocol" :
+                        {
+                                "tls1_1" : false,
+                                "tls1_2" : true,
+                                "tls1_3" : false
+                        },
+                        "type" : "openssl"
+                },
+                {
+                        "__v" : 2,
+                        "cipher" : "aes128-ctr,aes256-ctr,chacha20-poly1305@openssh.com",
+                        "cipherAvailable" : "",
+                        "cipherDeprecated" : [],
+                        "mac" : "hmac-sha1,hmac-sha2-256,hmac-sha2-512",
+                        "macAvailable" : "",
+                        "macDeprecated" : [],
+                        "name" : "sshd",
+                        "type" : "openssh"
+                },
+                {
+                        "__v" : 2,
+                        "cipherSuite" : "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256",
+                        "cipherSuiteAvailable" : "",
+                        "cipherSuiteAvailableTls13" : "",
+                        "cipherSuiteDeprecated" : [],
+                        "cipherSuiteTls13" : "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256",
+                        "client" :
+                        {
+                                "verify" : false
+                        },
+                        "name" : "rsyslogd",
+                        "protocol" :
+                        {
+                                "tls1_1" : false,
+                                "tls1_2" : true,
+                                "tls1_3" : true
+                        },
+                        "type" : "openssl"
+                }
+        ],
+        "selfDiagnostic" :
+        {
+                "flashMemoryViolation" :
+                {
+                        "disableUserFirewallRules" : false,
+                        "disableWans" : false,
+                        "enabled" : false,
+                        "interval" : 24
+                },
+                "resourceOveruse" :
+                {
+                        "enabled" : false,
+                        "rebootDevice" : false
+                },
+                "securityViolation" :
+                {
+                        "disableUserFirewallRules" : false,
+                        "disableWans" : false,
+                        "enabled" : false
+                }
+        },
+        "serial" :
+        {
+                "baudRate" : 115200,
+                "dataBits" : 8,
+                "flowControl" : "NONE",
+                "modbus" : false,
+                "parity" : "NONE",
+                "rs4xxTermination" : false,
+                "stopBits" : 1,
+                "type" : "RS-232"
+        },
+        "serialModemPassthrough" :
+        {
+                "baudRate" : 115200,
+                "dataBits" : 8,
+                "flowControl" : "RTS-CTS",
+                "parity" : "NONE",
+                "stopBits" : 1
+        },
+        "sms" :
+        {
+                "__v" : 1,
+                "enabled" : true,
+                "receivedLimit" : 1000,
+                "resendLimit" : 0,
+                "sentLimit" : 1000,
+                "smsCommands" :
+                {
+                        "apnEnabled" : false,
+                        "cellularStatusEnabled" : false,
+                        "checkinEnabled" : false,
+                        "enabled" : false,
+                        "ethernetEnabled" : false,
+                        "geopositionEnabled" : false,
+                        "lnsRestartEnabled" : false,
+                        "password" :
+                        {
+                                "customText" : "",
+                                "defaultText" : "021648",
+                                "enabled" : true,
+                                "text" : "021648",
+                                "useCustomPassword" : false
+                        },
+                        "pingEnabled" : false,
+                        "radioEnabled" : false,
+                        "rebootEnabled" : false,
+                        "rmEnabled" : false,
+                        "serialEnabled" : false,
+                        "setCellularEnabled" : false,
+                        "wanIpsEnabled" : false,
+                        "wanStatusEnabled" : false,
+                        "whitelist" :
+                        {
+                                "enabled" : false,
+                                "numbers" : []
+                        },
+                        "wifiEnabled" : false
+                }
+        },
+        "smtp" :
+        {
+                "enabled" : false,
+                "maxNumberOfEntries" : "1000",
+                "password" : "",
+                "serverAddress" : "",
+                "serverPort" : "25",
+                "sourceEmailAddress" : "",
+                "username" : ""
+        },
+        "snmp" :
+        {
+                "__v" : 2,
+                "server" :
+                {
+                        "allowedAddresses" : [],
+                        "enabled" : false,
+                        "sysContact" : "",
+                        "sysLocation" : "",
+                        "sysName" : "",
+                        "users" : []
+                },
+                "traps" :
+                {
+                        "enabled" : false,
+                        "engineId" : "0x800003e380e602884226e403ea",
+                        "engineIdDefault" : "0x800003e380e602884226e403ea",
+                        "receivers" : []
+                }
+        },
+        "sntp" :
+        {
+                "enabled" : true,
+                "pollingTime" : 1440,
+                "servers" :
+                [
+                        "time.nist.gov"
+                ],
+                "timeZone" : "UTC"
+        },
+        "status" : null,
+        "syslog" :
+        {
+                "__v" : 3,
+                "cellDataHistory" : 365,
+                "enabled" : false,
+                "ethDataHistory" : 365,
+                "ipAddress" : "",
+                "logLevel" : 30,
+                "outputToFile" : false,
+                "port" : 514,
+                "protocol" : "udp",
+                "saveDataLimit" : 5,
+                "saveTimeout" : 300,
+                "wifiDataHistory" : 365
+        },
+        "system" :
+        {
+                "accessoryCards" :
+                [
+                        {
+                                "cdone" : "1",
+                                "creset" : "1",
+                                "deviceId" : "19397607",
+                                "eui" : "00:80:00:00:A0:00:19:67",
+                                "fpgaVersion" : 35,
+                                "hwVersion" : "MTAC-LORA-1.5",
+                                "port" : "ap1",
+                                "productId" : "MTAC-LORA-H-915",
+                                "reset" : "1",
+                                "spiPath" : "/dev/spidev0.2",
+                                "vendorId" : "Multi-Tech Systems"
+                        }
+                ],
+                "apiVersion" : "",
+                "capabilities" :
+                {
+                        "adc" : false,
+                        "battery" : false,
+                        "bluetooth" : true,
+                        "cell" : true,
+                        "cellPpp" : true,
+                        "cellWwan" : true,
+                        "din" : false,
+                        "docker" : false,
+                        "dout" : false,
+                        "ethSwitch" : false,
+                        "externalSerialPort" : false,
+                        "gpio" : false,
+                        "gps" : true,
+                        "lora" : true,
+                        "loraLbt" : false,
+                        "loraNetworkServer" : true,
+                        "nodeRed" : false,
+                        "rs232" : false,
+                        "rs422" : false,
+                        "rs485" : false,
+                        "serial" : false,
+                        "supercap" : false,
+                        "tpm" : false,
+                        "userDataEncryption" : false,
+                        "wifi" : true
+                },
+                "cmdtty" : "/dev/modem_at1",
+                "datetime" : "06/11/2012 03:06:22",
+                "dbDirty" : false,
+                "defaultDeviceName" : "MultiConnect&reg; rCell",
+                "deviceHostname" : "mtcdt",
+                "deviceId" : "22315805",
+                "deviceName" : "",
+                "ethSwitch" : {},
+                "firmware" : "6.3.9",
+                "firmwareDate" : "2024-03-27T16:50:53",
+                "firmwareImageId" : "",
+                "firmwareRelease" : "6.3.4",
+                "firstTimeSetup" : false,
+                "hardwareVersion" : "MTCDT-0.1",
+                "imei" : "865167063667159",
+                "imsi" : "22222222222222",
+                "loraEui" : "",
+                "loraFpgaVersion" : 0,
+                "loraHwVersion" : "",
+                "loraProductId" : "",
+                "macAddress" : "00:08:00:4C:85:47",
+                "macAddress1" : "00:00:00:00:00:00",
+                "macBluetooth" : "04:CD:15:1B:69:61",
+                "macWifi" : "04:CD:15:12:8D:30",
+                "mode" : "ROUTER",
+                "oemConfigSet" : false,
+                "oemId" : "",
+                "oemString1" : "",
+                "oemString2" : "",
+                "platform" : "",
+                "ppptty" : "/dev/modem_at0",
+                "productId" : "MTCDT-L4G1-247A",
+                "restartNeeded" : false,
+                "signedFirmwareValidation" : true,
+                "uuid" : "B0E440ECDD23DA0AD6F45CAF13F300EC",
+                "vendorId" : "Multi-Tech Systems",
+                "webTitle" : ""
+        },
+        "trustedIp" :
+        {
+                "enabled" : false,
+                "mode" : "whitelist",
+                "rules" : []
+        },
+        "users" :
+        [
+                {
+                        "__v" : 2,
+                        "address" : "",
+                        "city" : "",
+                        "country" : "",
+                        "creationDate" : 1665365694,
+                        "division" : "",
+                        "email" : "",
+                        "employeeId" : "",
+                        "firstName" : "",
+                        "lastLoginDate" : "",
+                        "lastName" : "",
+                        "mobilePhone" : "",
+                        "name" : "admin",
+                        "password" : "$6$HPzovj6Za1JlxmN8$vytieICjQZ1mOBTLfGMb9BH3OedPpsanz9.7u.8K2axuDKWii7mLTPCBqnQNIVXeaj9eJ9iqTr8BIn4nSLVkO/",
+                        "passwordChangedDate" : "",
+                        "permission" : "admin",
+                        "postalCode" : "",
+                        "state" : "",
+                        "title" : "",
+                        "workPhone" : ""
+                }
+        ],
+        "waninfo" :
+        {
+                "wans" :
+                [
+                        {
+                                "available" : false,
+                                "current" : false,
+                                "enabled" : false,
+                                "gateway" : "",
+                                "interface" : "eth0",
+                                "ip" : "",
+                                "name" : "eth0",
+                                "subnet" : "",
+                                "type" : "ETHERNET"
+                        },
+                        {
+                                "available" : false,
+                                "current" : false,
+                                "enabled" : false,
+                                "gateway" : "",
+                                "interface" : "eth1",
+                                "ip" : "",
+                                "name" : "eth1",
+                                "subnet" : "",
+                                "type" : "ETHERNET"
+                        },
+                        {
+                                "available" : false,
+                                "current" : false,
+                                "enabled" : false,
+                                "gateway" : "",
+                                "interface" : "eth2",
+                                "ip" : "",
+                                "name" : "eth2",
+                                "subnet" : "",
+                                "type" : "ETHERNET"
+                        },
+                        {
+                                "available" : false,
+                                "current" : false,
+                                "enabled" : false,
+                                "gateway" : "",
+                                "interface" : "wlan0",
+                                "ip" : "",
+                                "name" : "wlan0",
+                                "subnet" : "",
+                                "type" : "WIFI"
+                        },
+                        {
+                                "available" : false,
+                                "current" : false,
+                                "enabled" : false,
+                                "gateway" : "",
+                                "interface" : "ppp0",
+                                "ip" : "",
+                                "name" : "ppp0",
+                                "subnet" : "",
+                                "type" : "CELLULAR"
+                        }
+                ]
+        },
+        "wanmngr" :
+        {
+                "mode" : "FAILOVER",
+                "wans" :
+                [
+                        {
+                                "interface" : "eth0",
+                                "monitor" :
+                                {
+                                        "active" :
+                                        {
+                                                "hostname" : "www.google.com",
+                                                "icmpCount" : 5,
+                                                "tcpPort" : 80,
+                                                "type" : "ICMP"
+                                        },
+                                        "checkInterval" : 60,
+                                        "mode" : "ACTIVE"
+                                },
+                                "priority" : 1,
+                                "weight" : 1
+                        },
+                        {
+                                "interface" : "eth1",
+                                "monitor" :
+                                {
+                                        "active" :
+                                        {
+                                                "hostname" : "www.google.com",
+                                                "icmpCount" : 5,
+                                                "tcpPort" : 80,
+                                                "type" : "ICMP"
+                                        },
+                                        "checkInterval" : 60,
+                                        "mode" : "ACTIVE"
+                                },
+                                "priority" : 4,
+                                "weight" : 1
+                        },
+                        {
+                                "interface" : "eth2",
+                                "monitor" :
+                                {
+                                        "active" :
+                                        {
+                                                "hostname" : "www.google.com",
+                                                "icmpCount" : 5,
+                                                "tcpPort" : 80,
+                                                "type" : "ICMP"
+                                        },
+                                        "checkInterval" : 60,
+                                        "mode" : "ACTIVE"
+                                },
+                                "priority" : 5,
+                                "weight" : 1
+                        },
+                        {
+                                "interface" : "wlan0",
+                                "monitor" :
+                                {
+                                        "active" :
+                                        {
+                                                "hostname" : "www.google.com",
+                                                "icmpCount" : 5,
+                                                "tcpPort" : 80,
+                                                "type" : "ICMP"
+                                        },
+                                        "checkInterval" : 60,
+                                        "mode" : "ACTIVE"
+                                },
+                                "priority" : 2,
+                                "weight" : 1
+                        },
+                        {
+                                "interface" : "ppp0",
+                                "monitor" :
+                                {
+                                        "active" :
+                                        {
+                                                "hostname" : "www.google.com",
+                                                "icmpCount" : 10,
+                                                "tcpPort" : 80,
+                                                "type" : "ICMP"
+                                        },
+                                        "checkInterval" : 60,
+                                        "mode" : "ACTIVE"
+                                },
+                                "priority" : 3,
+                                "weight" : 1
+                        }
+                ]
+        },
+        "wifi" :
+        {
+                "ap" :
+                {
+                        "beaconInterval" : 100,
+                        "channel" : "6",
+                        "countryCode" : "",
+                        "dtimInterval" : 1,
+                        "enabled" : false,
+                        "maxClients" : 5,
+                        "networkMode" : "bgn",
+                        "region" : "",
+                        "rtsThreshold" : 2347,
+                        "security" :
+                        {
+                                "algorithm" : "TKIP",
+                                "mode" : "NONE",
+                                "psk" : ""
+                        },
+                        "ssid" : ""
+                },
+                "client" :
+                {
+                        "enabled" : false,
+                        "mode" : "WAN",
+                        "savedNetworks" : []
+                },
+                "dual_band" : true,
+                "networks" : []
+        }
+}
+
+
+

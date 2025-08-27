@@ -1,0 +1,12 @@
+* Ubuntu 22.04
+
+* python3.11.13
+
+* Must create an .env outside of your source code. This is so that you do not have to copy them or upload to git.
+
+* Also, move the .env file outside of your source code.
+
+* Always update your requirements.txt each time you have installed any python packages.
+
+
+
